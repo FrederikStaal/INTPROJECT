@@ -4,11 +4,7 @@ html {
   font-family:'Roboto Slab';
   
 }
-body {
-    background-image: url(../images/home_page.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
 
 
 .form {
@@ -37,5 +33,11 @@ input {
   html {
     font-size: 16px;
   }
+
+    body {
+        background-image: url(../images/home_page.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 }
 
