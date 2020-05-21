@@ -1,7 +1,36 @@
-﻿
+﻿/*Mobile first*/
 html {
   font-size: 14px;
+  font-family:'Roboto Slab';
+  
 }
+body {
+    background-image:url(../images/back_home.png);
+   
+}
+
+.form {
+
+    width: 25%;
+    background-color:aquamarine;
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-items:center;
+    align-items:center;
+    text-align:center;
+    width: 80%;
+    margin:20px;
+}
+
+input {
+    margin:5px;
+}
+
+/*desktop*/
 @media (min-width: 768px) {
   html {
     font-size: 16px;
