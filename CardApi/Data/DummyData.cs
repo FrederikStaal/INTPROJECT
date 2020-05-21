@@ -40,17 +40,17 @@ namespace CardAPI.Data
 
             List<Character> characters = new List<Character>()
             {
-               new Character { CharacterID = 1, Name = "The General", Image = "" },
-                new Character { CharacterID = 2, Name = "The Advicer", Image = "" },
-                new Character { CharacterID = 3, Name = "The diplomat", Image = "" },
-                new Character { CharacterID = 4, Name = "Minister of trade", Image = "" },
-                new Character { CharacterID = 5, Name = "The Media", Image=""},
-                new Character { CharacterID = 7, Name = "Death", Image=""},
-                new Character {CharacterID = 8, Name = "Minister of Trade rules", Image=""},
-                new Character {CharacterID = 9, Name = "Prison", Image=""},
-                new Character {CharacterID = 10, Name = "Paper Route", Image=""},
-                new Character {CharacterID = 11, Name = "No population", Image=""},
-                new Character {CharacterID = 12, Name = "You are a puppet", Image=""}
+               new Character { CharacterID = 1, Name = "The General", Image = "the_general.png" },
+                new Character { CharacterID = 2, Name = "The Advicer", Image = "advicer.png" },
+                new Character { CharacterID = 3, Name = "The diplomat", Image = "diplomat.png" },
+                new Character { CharacterID = 4, Name = "Minister of trade", Image = "minister_of_trade.png" },
+                new Character { CharacterID = 5, Name = "The Media", Image="The_media.png"},
+                new Character { CharacterID = 7, Name = "Death", Image="dead.png"},
+                new Character {CharacterID = 8, Name = "Minister of Trade rules", Image="Trader=leader.png"},
+                new Character {CharacterID = 9, Name = "Prison", Image="population=100.png"},
+                new Character {CharacterID = 10, Name = "Paper Route", Image="happiness=0.png"},
+                new Character {CharacterID = 11, Name = "No population", Image="population=0.png"},
+                new Character {CharacterID = 12, Name = "You are a puppet", Image="outsiderealation=100.png"}
 
             };
             return characters;
