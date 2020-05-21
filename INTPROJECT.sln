@@ -3,13 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "INTPROJECT", "INTPROJECT\INTPROJECT.csproj", "{DD9B35AE-52E2-4EE0-9354-6A99BCA9CC1F}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_INTPROJECT", "_INTPROJECT\_INTPROJECT.csproj", "{572217E1-A2B7-4706-8387-EBDC451C1E30}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CardAPI", "CardApi\CardAPI.csproj", "{7684FDA2-DAE6-4E09-B34A-BA642A584CF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Website", "Website\Website.csproj", "{71D90667-0DDD-4E8C-B322-59534E9716F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Website", "Website\Website.csproj", "{71D90667-0DDD-4E8C-B322-59534E9716F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,14 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DD9B35AE-52E2-4EE0-9354-6A99BCA9CC1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DD9B35AE-52E2-4EE0-9354-6A99BCA9CC1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DD9B35AE-52E2-4EE0-9354-6A99BCA9CC1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DD9B35AE-52E2-4EE0-9354-6A99BCA9CC1F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{572217E1-A2B7-4706-8387-EBDC451C1E30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{572217E1-A2B7-4706-8387-EBDC451C1E30}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{572217E1-A2B7-4706-8387-EBDC451C1E30}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{572217E1-A2B7-4706-8387-EBDC451C1E30}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7684FDA2-DAE6-4E09-B34A-BA642A584CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7684FDA2-DAE6-4E09-B34A-BA642A584CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7684FDA2-DAE6-4E09-B34A-BA642A584CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
