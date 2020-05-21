@@ -35,12 +35,23 @@ namespace CardAPI.Data
 
         public static List<Character> GetCharacters()
         {
+
+            // The characters for the cards
+
             List<Character> characters = new List<Character>()
             {
-                new Character { Name = "Frederik", Image = "" },
-                new Character { Name = "Rasmus", Image = "" },
-                new Character { Name = "Joseph", Image = "" },
-                new Character { Name = "Toby", Image = "" }
+               new Character { CharacterID = 1, Name = "The General", Image = "" },
+                new Character { CharacterID = 2, Name = "The Advicer", Image = "" },
+                new Character { CharacterID = 3, Name = "The diplomat", Image = "" },
+                new Character { CharacterID = 4, Name = "Minister of trade", Image = "" },
+                new Character { CharacterID = 5, Name = "The Media", Image=""},
+                new Character { CharacterID = 7, Name = "Death", Image=""},
+                new Character {CharacterID = 8, Name = "Minister of Trade rules", Image=""},
+                new Character {CharacterID = 9, Name = "Prison", Image=""},
+                new Character {CharacterID = 10, Name = "Paper Route", Image=""},
+                new Character {CharacterID = 11, Name = "No population", Image=""},
+                new Character {CharacterID = 12, Name = "You are a puppet", Image=""}
+
             };
             return characters;
         }
@@ -49,16 +60,21 @@ namespace CardAPI.Data
         {
             List<Card> cards = new List<Card>()
             {
-                new Card { Name = "Card1", Text = "", Economy1 = 0, Economy2 = 0, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 = 0, Thepublic1 = 0, Thepublic2 = 0, CharacterID = 1, Character = db.Character.Where(c => c.CharacterID == 1).Single() },
-                new Card { Name = "Card2", Text = "", Economy1 = 0, Economy2 = 0, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 = 0, Thepublic1 = 0, Thepublic2 = 0, CharacterID = 2, Character = db.Character.Where(c => c.CharacterID == 2).Single() },
-                new Card { Name = "Card3", Text = "", Economy1 = 0, Economy2 = 0, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 = 0, Thepublic1 = 0, Thepublic2 = 0, CharacterID = 3, Character = db.Character.Where(c => c.CharacterID == 3).Single() },
-                new Card { Name = "Card4", Text = "", Economy1 = 0, Economy2 = 0, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 = 0, Thepublic1 = 0, Thepublic2 = 0, CharacterID = 4, Character = db.Character.Where(c => c.CharacterID == 4).Single() },
-                new Card { Name = "Card5", Text = "", Economy1 = 0, Economy2 = 0, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 = 0, Thepublic1 = 0, Thepublic2 = 0, CharacterID = 1, Character = db.Character.Where(c => c.CharacterID == 1).Single() },
-                new Card { Name = "Card6", Text = "", Economy1 = 0, Economy2 = 0, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 = 0, Thepublic1 = 0, Thepublic2 = 0, CharacterID = 2, Character = db.Character.Where(c => c.CharacterID == 2).Single() },
-                new Card { Name = "Card7", Text = "", Economy1 = 0, Economy2 = 0, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 = 0, Thepublic1 = 0, Thepublic2 = 0, CharacterID = 3, Character = db.Character.Where(c => c.CharacterID == 3).Single() },
-                new Card { Name = "Card8", Text = "", Economy1 = 0, Economy2 = 0, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 = 0, Thepublic1 = 0, Thepublic2 = 0, CharacterID = 3, Character = db.Character.Where(c => c.CharacterID == 3).Single() },
-                new Card { Name = "Card9", Text = "", Economy1 = 0, Economy2 = 0, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 = 0, Thepublic1 = 0, Thepublic2 = 0, CharacterID = 4, Character = db.Character.Where(c => c.CharacterID == 4).Single() },
-                new Card { Name = "Card10", Text = "", Economy1 = 0, Economy2 = 0, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 = 0, Thepublic1 = 0, Thepublic2 = 0, CharacterID = 4, Character = db.Character.Where(c => c.CharacterID == 4).Single() }
+                //Cards relatedto the general 
+
+                new Card {Text = " Sir!...We need more money to secure the borders, to keep the public safe from invaders", Economy1 = -15, Economy2 = 15, Military1 = 10, Military2 = -10, Relations1 = 0, Relations2 = 0, Thepublic1 = 0, Thepublic2 = 0, CharacterID = 1, Character = db.Character.Where(c => c.CharacterID == 1).Single()},
+                new Card {Text = " Sir!.. We should implement enlistments, so we can insure that our army keeps growing", Economy1 = 0, Economy2 = 0, Military1 = 15, Military2 = -15, Relations1 = 0, Relations2 = 0, Thepublic1 = -15, Thepublic2 = 15, CharacterID = 1, Character = db.Character.Where(c => c.CharacterID == 1).Single()},
+                new Card {Text = "Sir!.. We need to assign more soldiers to patrol the borders... We can’t trust the Foreigners", Economy1 = 0, Economy2 = 0, Military1 = -10, Military2 = 10, Relations1 = -20, Relations2 = 20, Thepublic1 = 10, Thepublic2 = -10, CharacterID = 1, Character = db.Character.Where(c => c.CharacterID == 1).Single()},
+                new Card {Text = " Sir!.. The soldiers are complaining about the food at the barracks. Let’s hire a decent chef", Economy1 = -10, Economy2 = 10, Military1 = 15, Military2 = -15, Relations1 = 0, Relations2 = 0, Thepublic1 = 0, Thepublic2 = 0, CharacterID = 1, Character = db.Character.Where(c => c.CharacterID == 1).Single()},
+                new Card {Text = " Sir!.. The diplomat is a STUPID F#$@ LITTLE #$@&%* apple  #$@&%*!?!?! Don’t you agree?", Economy1 = 0, Economy2 = 0, Military1 = 10, Military2 = -10, Relations1 = -10, Relations2 = 10, Thepublic1 = 0, Thepublic2 = 0, CharacterID = 1, Character = db.Character.Where(c => c.CharacterID == 1).Single()},
+
+                //Cards related to the minister of trade
+
+                new Card {Text = " Hey boss.. We should raise the taxes! The public don’t need that money anyway", Economy1 = 20, Economy2 = -20, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 = 0, Thepublic1 = -20, Thepublic2 = 20, CharacterID = 4, Character = db.Character.Where(c => c.CharacterID == 4).Single()},
+                new Card {Text = " Hey boss.. We should make a trade union with our neighbouring countries!", Economy1 = 25, Economy2 = -25, Military1 = -10, Military2 = 10, Relations1 = 20, Relations2 =-20, Thepublic1 = -20, Thepublic2 = 20, CharacterID = 4, Character = db.Character.Where(c => c.CharacterID == 4).Single()},
+                new Card {Text = "", Economy1 = 0, Economy2 = 0, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 =0, Thepublic1 = 0, Thepublic2 = 0, CharacterID = 4, Character = db.Character.Where(c => c.CharacterID == 4).Single()}
+
+          
             };
             return cards;
         }
