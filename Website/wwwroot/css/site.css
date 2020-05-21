@@ -5,7 +5,11 @@ html {
   
 }
 
-
+body {
+    background-image: url(../images/home_page.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
 
 .form {
     display:flex;
