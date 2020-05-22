@@ -5,6 +5,7 @@ html {
 }
 
 body {
+    overflow: hidden;
     background-image: url(../images/home_page.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -27,7 +28,14 @@ section
 
 
 h1 {
-    font-size: 35px;
+    font-size: 50px;
+    color: white;
+    text-shadow: 2px 2px black;
+    transition: transform 0.5s;
+}
+
+h1:hover {
+    transform: scale(1.5);
 }
 
 h3 {
@@ -47,10 +55,19 @@ h3 {
     background-color: rgba(196, 196, 196, 80%);
     padding: 30px;
     border-radius: 20px;
-    margin: 25px;
+    transition: transform 0.5s;
+}
+.form:hover {
+    transform:scale(1.2);
+}
+.flex-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.flex-inner {
+.flexaside-innner {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -99,26 +116,36 @@ input {
 }
 
 #left {
-    display: flex;
-    flex-direction: column;
     grid-area: 1 / 1 / 6 / 2;
 }
 
 #right {
-    display: flex;
-    flex-direction: column;
     grid-area: 1 / 5 / 6 / 6;
 }
 .characters {
-    width: 70%;
+    width: 80%;
+    margin:1px;
 }
 #left .characters {
-    transform: rotate(20deg);
+    transform: rotate(30deg);
+    transition: 0.3s;
 }
 
 #right .characters {
-    transform: rotate(-20deg);
+    transform: rotate(330deg);
+    transition: 0.3s;
 }
+
+
+#left .characters:hover {
+    transform: rotate(15deg);
+}
+
+#right .characters:hover {
+    transform: rotate(345deg);
+}
+
+
 
 
 /*desktop*/

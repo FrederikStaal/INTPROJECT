@@ -19,7 +19,6 @@
     <None Remove="Views\images\phone.png" />
     <None Remove="Views\images\population=0.png" />
     <None Remove="Views\images\population=100.png" />
-    <None Remove="Views\images\the general_home.png" />
     <None Remove="Views\images\the_general.png" />
     <None Remove="Views\images\The_media.png" />
     <None Remove="Views\images\Trader=leader.png" />
@@ -79,10 +78,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Include="Views\images\population=100.png">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="Views\images\the general_home.png">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
