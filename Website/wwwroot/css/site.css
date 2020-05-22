@@ -10,6 +10,22 @@ body {
     background-size: cover;
 }
 
+/*Grid*/
+#container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+section 
+{
+    grid-area: 1 / 2 / 6 / 5;
+}
+
+
+
 h1 {
     font-size: 35px;
 }
@@ -27,7 +43,7 @@ h3 {
 
 .form {
     display: flex;
-    width: 25%;
+    width: 50%;
     background-color: rgba(196, 196, 196, 80%);
     padding: 30px;
     border-radius: 20px;
@@ -82,6 +98,29 @@ input {
     display: none;
 }
 
+#left {
+    display: flex;
+    flex-direction: column;
+    grid-area: 1 / 1 / 6 / 2;
+}
+
+#right {
+    display: flex;
+    flex-direction: column;
+    grid-area: 1 / 5 / 6 / 6;
+}
+.characters {
+    width: 70%;
+}
+#left .characters {
+    transform: rotate(20deg);
+}
+
+#right .characters {
+    transform: rotate(-20deg);
+}
+
+
 /*desktop*/
 @media (min-width: 768px) {
     html {
@@ -92,5 +131,6 @@ input {
         background-image: url(../images/home_page.png);
         background-repeat: no-repeat;
         background-size: cover;
+        background-position:center;
     }
 }
