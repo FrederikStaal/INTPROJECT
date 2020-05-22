@@ -10,6 +10,14 @@ body {
     background-size: cover;
 }
 
+h1 {
+    font-size: xx-large;
+}
+
+h3 {
+    font-size: x-large;
+}
+
 #flexbox {
     display: flex;
     flex-direction: column;
@@ -18,34 +26,43 @@ body {
 }
 
 .form {
+    display: flex;
     width: 25%;
-    background-color: aquamarine;
-    padding: 20px;
+    background-color: rgba(196, 196, 196, 80%);
+    padding: 30px;
     border-radius: 20px;
+    margin: 30px;
 }
 
 .flex-inner {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.flex-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 form {
-    width: 80%;
-    margin: 20px;
+    width: 100%;
 }
 
 input {
-    margin: 5px;
+    margin: 10px;
 }
 
 .Text_input {
     padding: 10px;
-    width: 100%;
+    width: 70%;
 }
 
 .button {
+    margin-top: 30px;
     background-color: #FBB540;
     border-style: none;
     border-radius: 5px;
@@ -53,7 +70,13 @@ input {
     color: white;
     font-weight: bold;
     font-size: medium;
+    transition: transform .2s;
 }
+
+    .button:hover {
+        transform: scale(1.2);
+        background-color: blue;
+    }
 
 #create {
     display: none;
