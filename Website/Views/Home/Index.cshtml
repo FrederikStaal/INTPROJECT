@@ -4,25 +4,30 @@
 
 
 
-<h1>Be my leader</h1>
-
 <section id="loginHome">
+    <div id="flexbox">
+        <h1>Be my leader</h1>
+        <div class="form">
 
-    <div class="form">
-        <h3>Log-in to rule our country!</h3>
-        <form id="LoginForm" action="" method="post">
-            <input type="text" placeholder="username" required>
-            <input type="password" placeholder="password" required>
-            <input class="button" type="submit" value="Log-in">
-            <input class="button" type="button" value="Create account" onclick="">
-        </form>
+            <form id="LoginForm" action="" method="post">
+                <div class="flex-inner">
+                    <h3>Rule our country!</h3>
+                    <input class="Text_input" type="text" placeholder="username" required>
+                    <input class="Text_input" type="password" placeholder="password" required>
+                    <input class="button" type="submit" value="Log-in">
+                    <input class="button" type="button" value="Create account" onclick="">
+                </div>
+            </form>
+        </div>
+        <div class="form" id="create">
+            <form id="CreateAccountForm" action="" method="post">
+                <div class="flex-inner">
+                    <h3> Become our leader!</h3>
+                    <input class="Text_input" type="text" placeholder="Create username" required>
+                    <input class="Text_input" type="password" placeholder="Create Password" required>
+                    <input class="button" type="submit" value="Create">
+                </div>
+            </form>
+        </div>
     </div>
-
-    <form id="CreateAccountForm" action="" method="post">
-        <h3> Become our leader!</h3>
-        <input type="text" placeholder="Create username" required>
-        <input type="password" placeholder="Create Password" required>
-        <input class="button" type="submit" value="Create">
-    </form>
-
 </section>
