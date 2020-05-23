@@ -33,15 +33,86 @@ namespace Website.Data
             List<Card> cards = new List<Card>()
             {
                 //Cards related to the general 
-                new Card {ImageRef = "the_general.png", Text = "Sir!...We need more money to secure the borders, to keep the public safe from invaders", Economy1 = -15, Economy2 = 15, Military1 = 10, Military2 = -10, Relations1 = 0, Relations2 = 0, Happiness1 = 0, Happiness2 = 0, CharacterID = 1},
-                new Card {ImageRef = "the_general.png", Text = "Sir!.. We should implement enlistments, so we can insure that our army keeps growing", Economy1 = 0, Economy2 = 0, Military1 = 15, Military2 = -15, Relations1 = 0, Relations2 = 0, Happiness1 = -15, Happiness2 = 15, CharacterID = 1},
-                new Card {ImageRef = "the_general.png", Text = "Sir!.. We need to assign more soldiers to patrol the borders... We can’t trust the Foreigners", Economy1 = 0, Economy2 = 0, Military1 = -10, Military2 = 10, Relations1 = -20, Relations2 = 20, Happiness1 = 10, Happiness2 = -10, CharacterID = 1},
-                new Card {ImageRef = "the_general.png", Text = "Sir!.. The soldiers are complaining about the food at the barracks. Let’s hire a decent chef", Economy1 = -10, Economy2 = 10, Military1 = 15, Military2 = -15, Relations1 = 0, Relations2 = 0, Happiness1 = 0, Happiness2 = 0, CharacterID = 1},
-                new Card {ImageRef = "the_general.png", Text = "Sir!.. The diplomat is a STUPID F#$@ LITTLE #$@&%* apple  #$@&%*!?!?! Don’t you agree?", Economy1 = 0, Economy2 = 0, Military1 = 10, Military2 = -10, Relations1 = -10, Relations2 = 10, Happiness1 = 0, Happiness2 = 0, CharacterID = 1},
+                new Card {ImageRef = "the_general.png", Text = "Sir!...We need more money to secure the borders, to keep the public safe from invaders",
+                    Economy1 = -15, Economy2 = 15, Military1 = 10, Military2 = -10, Relations1 = 0, Relations2 = 0, Happiness1 = 0, Happiness2 = 0,
+                    CharacterID = 1},
+                new Card {ImageRef = "the_general.png", Text = "Sir!.. We should implement enlistments, so we can insure that our army keeps growing",
+                    Economy1 = 0, Economy2 = 0, Military1 = 15, Military2 = -15, Relations1 = 0, Relations2 = 0, Happiness1 = -15, Happiness2 = 15,
+                    CharacterID = 1},
+                new Card {ImageRef = "the_general.png", Text = "Sir!.. We need to assign more soldiers to patrol the borders... We can’t trust the Foreigners",
+                    Economy1 = 0, Economy2 = 0, Military1 = -10, Military2 = 10, Relations1 = -20, Relations2 = 20, Happiness1 = 10, Happiness2 = -10,
+                    CharacterID = 1},
+                new Card {ImageRef = "the_general.png", Text = "Sir!.. The soldiers are complaining about the food at the barracks. Let’s hire a decent chef",
+                    Economy1 = -10, Economy2 = 10, Military1 = 15, Military2 = -15, Relations1 = 0, Relations2 = 0, Happiness1 = 0, Happiness2 = 0,
+                    CharacterID = 1},
+                new Card {ImageRef = "the_general.png",Text = "Sir!.. The diplomat is a STUPID F#$@ LITTLE #$@&%* apple  #$@&%*!?!?! Don’t you agree?",
+                    Economy1 = 0, Economy2 = 0, Military1 = 10, Military2 = -10, Relations1 = -10, Relations2 = 10, Happiness1 = 0, Happiness2 = 0,
+                    CharacterID = 1},
+
+                //death, general, if military 0
+                new Card {ImageRef = "the_general.png", Text = "We are being invaded by the neighbouring country and we have no army… We should surrender!",
+                        Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
+                        CharacterID = 1 },
+                // if no
+                new Card {ImageRef = "dead.png",Text = "You did not surrender, which resulted in you being put to death",
+                        Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
+                        CharacterID = 7 },
+                // if yes
+                new Card {ImageRef = "prison.png",Text = "You surrendered to the invaders, and spent the rest of your days in prison",
+                        Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
+                        CharacterID = 7 },
+                //death, general if military 100
+                new Card {ImageRef = "the_general.png", Text = "Sir.. The army have no more need of you.. I’ll take over from here",
+                        Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
+                        CharacterID = 1 },
+                // if yes
+                new Card {ImageRef = "prison.png",Text = "The generel spared you and threw you to prison..",
+                        Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
+                        CharacterID = 7 },
+                // if no
+                new Card {ImageRef = "dead.png",Text = "The generel didn’t take a no for an answer and shot you on the spot",
+                        Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
+                        CharacterID = 7 },
+                
+
 
                 //Cards related to the minister of trade
-                new Card {ImageRef = "minister_of_trade.png", Text = "Hey boss.. We should raise the taxes! The public don’t need that money anyway", Economy1 = 20, Economy2 = -20, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 = 0, Happiness1 = -20, Happiness2 = 20, CharacterID = 4},
-                new Card {ImageRef = "minister_of_trade.png", Text = "Hey boss.. We should make a trade union with our neighbouring countries!", Economy1 = 25, Economy2 = -25, Military1 = -10, Military2 = 10, Relations1 = 20, Relations2 =-20, Happiness1 = -20, Happiness2 = 20, CharacterID = 4},
+                new Card {ImageRef = "minister_of_trade.png", Text = "Hey boss.. We should raise the taxes! The public don’t need that money anyway",
+                    Economy1 = 20, Economy2 = -20, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 = 0, Happiness1 = -20, Happiness2 = 20,
+                    CharacterID = 4},
+                new Card {ImageRef = "minister_of_trade.png", Text = "Hey boss.. We should make a trade union with our neighbouring countries!",
+                    Economy1 = 25, Economy2 = -25, Military1 = -10, Military2 = 10, Relations1 = 20, Relations2 =-20, Happiness1 = -20, Happiness2 = 20,
+                    CharacterID = 4},
+                new Card {ImageRef = "minister_of_trade.png", Text = "THIS IF FOR TESTING DELETE ME LATER",
+                    Economy1 = 25, Economy2 = -25, Military1 = -10, Military2 = 10, Relations1 = 20, Relations2 =-20, Happiness1 = -20, Happiness2 = 20, CharacterID = 4},
+                new Card {ImageRef = "minister_of_trade.png", Text = "if this works i will be happy",
+                    Economy1 = 25, Economy2 = -25, Military1 = -10, Military2 = 10, Relations1 = 20, Relations2 =-20, Happiness1 = -20, Happiness2 = 20,
+                    CharacterID = 4},
+
+                new Card {ImageRef = "minister_of_trade.png",Text = " Hey boss.. Let us increase tax complexity, so people wont fill them right and we can fine them!",
+                    Economy1 = 10, Economy2 = 0, Military1 = -10, Military2 = 0, Relations1 = 0, Relations2 =0, Happiness1 = -20, Happiness2 = 0,
+                    CharacterID = 4 },
+                new Card {ImageRef = "minister_of_trade.png",Text = " Hey boss.. Let us increase the taxes for nonprofits, they are making too much profit!",
+                    Economy1 = 15, Economy2 = -15, Military1 = 0, Military2 = 0, Relations1 = 20, Relations2 =-20, Happiness1 = -10, Happiness2 = 0,
+                    CharacterID = 4},
+                new Card {ImageRef = "minister_of_trade.png",Text = " Hey boss.. We should maybe support our single mothers some more with some cheap benefits",
+                    Economy1 = -5, Economy2 = 0, Military1 = -10, Military2 = 0, Relations1 = 0, Relations2 = 0, Happiness1 = 10, Happiness2 = -10,
+                    CharacterID = 4},
+                new Card {ImageRef = "minister_of_trade.png",Text = " MORNING.. How about investing in education and raise the salary for teachers of public schools?",
+                    Economy1 = -5, Economy2 = 0, Military1 = -5, Military2 = 0, Relations1 = 0, Relations2 = 0, Happiness1 = 10, Happiness2 = -10,
+                    CharacterID = 4},
+                new Card {ImageRef = "minister_of_trade.png",Text = "G' day... Entrepreneurs are potentially dodging taxes, let us check a small sample pool of these suckers and punish them to encourage others to pay proper taxes!",
+                    Economy1 = 0, Economy2 = 0, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 =0, Happiness1 = 0,Happiness2 = 0,
+                    CharacterID = 4},
+                new Card {ImageRef = "minister_of_trade.png",Text = "", Economy1 = 0, Economy2 = 0, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 =0, Happiness1 = 0, Happiness2 = 0,
+                    CharacterID = 4},
+
+
+                //diplomat - relation 100
+                new Card {ImageRef = "diplomat.png",Text = "My friend… We have been doing the bidding of the major countries for so long, that we have no influence on anything anymore", 
+                    Economy1 = 0, Economy2 = 0, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 =0, Happiness1 = 0, Happiness2 = 0,
+                    CharacterID = 4},
+
                 //Cards related to the advicer
             };
             return cards;
