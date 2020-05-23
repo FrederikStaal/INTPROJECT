@@ -34,9 +34,10 @@ h1 {
     transition: transform 0.5s;
 }
 
-h1:hover {
-    transform: scale(1.5);
-}
+    h1:hover {
+        transform: scale(1.5);
+        
+    }
 
 h3 {
     font-size: 25px;
@@ -57,9 +58,9 @@ h3 {
     border-radius: 20px;
     transition: transform 0.5s;
 }
-.form:hover {
-    transform:scale(1.2);
-}
+    .form:hover {
+        transform: scale(1.1);   
+    }
 .flex-inner {
     display: flex;
     flex-direction: column;
@@ -109,6 +110,7 @@ input {
     .button:hover {
         transform: scale(1.2);
         background-color: blue;
+        cursor: pointer;
     }
 
 #create {
@@ -136,7 +138,7 @@ input {
     transition: 0.3s;
 }
 
-
+/*should only be on desktop*/
 #left .characters:hover {
     transform: rotate(15deg);
 }
