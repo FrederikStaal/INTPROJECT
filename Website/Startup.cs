@@ -42,6 +42,8 @@ namespace Website
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+            CardData.Initialize(app);
+
             app.UseStaticFiles();
 
             app.UseRouting();
