@@ -1,3 +1,6 @@
+//url of the card api
+let cardAPIURL = "http://localhost:49340/api/cards";
+
 //card handling
 let cards; //all cards in game
 let currentCard; //current card displayed
@@ -10,7 +13,7 @@ let status = { //status of empire, range from 0 to 100
     military: 50,
     happiness: 50,
     relations: 50,
-    money: 50
+    economy: 50
 }
 let turn = -1; //turns since start, starts at -1 because  1 is added at game start
 
@@ -18,15 +21,15 @@ let turn = -1; //turns since start, starts at -1 because  1 is added at game sta
 loadData();
 
 //get card data from json
-async function loadData(){
-    const response = await fetch("./cards.json");
+async function loadData() {
+    const response = await fetch(cardAPIURL);
     const data = await response.json();
     //after data is loaded, execute startup function and pass in json data
     startup(await Promise.all(data));
 }
 
 //called after all data is loaded, saves data from loadData function
-function startup(data){
+function startup(data) {
     //save card data from json to cards variable
     cards = data;
     generateCardIDs();
@@ -35,21 +38,21 @@ function startup(data){
 }
 
 //creates list of ids for all cards
-function generateCardIDs(){
+function generateCardIDs() {
     //for each card add its id to cardids list
     cards.forEach(card => {
-        cardIDs.push(card.ID);
+        cardIDs.push(card.cardID);
     });
 }
 
 //returns card with same id or null if not found
-function getCardByID(id){
+function getCardByID(id) {
     //return variable, assigned as null to return null if no card found
     let r = null;
     //for each card
     cards.forEach(card => {
         //if card id is equal to id input
-        if(card.ID === id)
+        if (card.cardID === id)
             //assign card to return variable
             r = card;
     });
@@ -57,7 +60,7 @@ function getCardByID(id){
 }
 
 //returns list of unused cards (cards)
-function getUnusedCardIDs(){
+function getUnusedCardIDs() {
     //return list
     let r = new Array();
     //copy card ids and add them to r 
@@ -66,16 +69,16 @@ function getUnusedCardIDs(){
     });
     //for each used cards id subtract it from r
     cardIDsUsed.forEach(id => {
-        if(r.includes(id))
+        if (r.includes(id))
             r.splice(r.indexOf(id), 1);
     });
     return r;
 }
 
 //returns a random card that has not been used recently
-function getRandomUnusedCard(){
+function getRandomUnusedCard() {
     //if length of usedcards us equal to reuse factor
-    if(cardIDsUsed.length == reuseFactor){
+    if (cardIDsUsed.length == reuseFactor) {
         //remove last member of card ids used
         cardIDsUsed.pop();
     }
@@ -90,38 +93,33 @@ function getRandomUnusedCard(){
 }
 
 //selects new card and assigns it to current card, also updates previouscards
-function newCard(){
+function newCard() {
+    //~/images/
     currentCard = getRandomUnusedCard();
+    document.getElementById("gameImage").src = "../images/" + currentCard.imageRef;
 }
 
-//takes the result you have input and adds the consequences to status
-function resultToStatus(result){
-    //if this result contains happiness changes
-    if(result.Happiness != undefined)
-        //add it to status
-        status.happiness += parseInt(result.Happiness);
-    if(result.Military != undefined)
-        status.military += parseInt(result.Military);
-    if(result.Money != undefined)
-        status.money += parseInt(result.Money);
-    if(result.Relations != undefined)
-        status.relations += parseInt(result.Relations);
-}
-
-function agree(){
-    resultToStatus(currentCard.Agree);
+//takes the result you have agreed to and adds the consequences to status
+function agree() {
+    status.military += parseInt(currentCard.military1);
+    status.relations += parseInt(currentCard.relations1);
+    status.happiness += parseInt(currentCard.happiness1);
+    status.economy += parseInt(currentCard.economy1);
     nextTurn();
 }
 
-function disagree(){
-    resultToStatus(currentCard.Disagree);
+function disagree() {
+    status.military += parseInt(currentCard.military2);
+    status.relations += parseInt(currentCard.relations2);
+    status.happiness += parseInt(currentCard.happiness2);
+    status.economy += parseInt(currentCard.economy2);
     nextTurn();
 }
 
 //rare cardS??
 
 
-function nextTurn(){
+function nextTurn() {
     turn++;
     newCard();
     console.log(currentCard);
