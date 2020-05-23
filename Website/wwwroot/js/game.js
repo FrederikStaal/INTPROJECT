@@ -1,5 +1,5 @@
 //url of the card api
-let cardAPIURL = "http://localhost:49340/api/cards";
+let cardAPIURL = window.location.href.replace("/game", "/api/cards");
 
 //card handling
 let cards; //all cards in game
