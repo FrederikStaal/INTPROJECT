@@ -2,16 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CardAPI.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Website.Models;
-using Website.Data;
-namespace Website
+using Microsoft.Extensions.Logging;
+
+namespace CardApi
 {
     public class Startup
     {
@@ -25,10 +27,17 @@ namespace Website
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<GameContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("CardDB")));
+            services.AddControllers();
+            // Adding GameContext to the container
+            services.AddDbContext<GameContext>(options => options.UseSqlServer(Configuration.GetConnectionString("GameDb")));
 
-            services.AddControllersWithViews();
+            // Declaring Cors Policy - Allow access to all sources
+            //services.AddCors(o => o.AddPolicy("GamePolicy", builder =>
+            //{
+            //    builder.AllowAnyOrigin() // Request can come from any domain
+            //    .AllowAnyMethod() // All methods can be used - GET, PUT etc.
+            //    .AllowAnyHeader(); // All headers are allowed by the HTTP protocol
+            //}));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,9 +49,16 @@ namespace Website
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
             }
-            app.UseStaticFiles();
+
+
+
+
+            // Using Dummy Data
+            DummyData.Initialize(app);
+
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 
@@ -50,10 +66,9 @@ namespace Website
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers();
             });
+
         }
     }
 }
