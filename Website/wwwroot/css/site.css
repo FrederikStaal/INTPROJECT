@@ -160,39 +160,99 @@ input {
 .game-icon {
 
 }
-
-.game-icon * {
-    width: 100px;
-    height: 100px;
-}
+    
+    .game-icon * {
+        width: 100px;
+        height: 100px;
+    }
 
 #pillars {
     grid-area:1/1/2/6;
 }
 
+
 #yes {
-    grid-area:2/1/4/2;
+    grid-area: 2/1/5/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #no {
-    grid-area: 2/5/4/6;
+    grid-area: 2/4/5/6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #game-cards {
     grid-area: 2/2/5/5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s;
 }
+
+ 
+    .answer-button {
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        height: 80%;
+        width: 50%;
+        background-color: #1A4C74;
+        border-style: none;
+        border-radius: 20px;
+        box-shadow: 0px 11px 8px -7px rgba(0,0,0,0.29);
+        text-align: center;
+        transition: transform 0.5s;
+    }
+    .answer-button:hover {
+        transform:scale(1.1);
+    }
+
+
+
 #gameImage {
-    width: 30%;
+    position:relative;
+    width: 33%;
+    border-radius: 20px;
+    box-shadow: 0px 11px 8px -7px rgba(0,0,0,0.29);
+    
+   
 }
+
+
+
+#CardText {
+    color:white;
+    position: absolute;
+    text-align:center;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:20%;
+    
+}
+
+   
+
 /*Dropdown menu*/
 #dropdown {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     width: 100%;
+    
 }
 #menu_headline {
     color: white;
-    padding: 2px 12px;
+    padding: 0px 25px;
+}
+#years_office {
+    position:absolute;
+    color: white;
+   right: 12%;
+   top:  12px;
 }
 #dropdown_nav {
     visibility: hidden;
@@ -203,21 +263,27 @@ input {
 
     #dropdown_nav a {
         color: white;
-        padding: 12px 16px;
+        padding: 12px 26px;
         text-decoration: none;
     }
+        #dropdown_nav a:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
 
-#dropdown:hover{
-    background-color: #1A4C74;
-}
+        #dropdown:hover {
+            background-color: #1A4C74;
+        }
     #dropdown:hover #dropdown_nav {
         visibility: visible;
-        cursor: pointer;
+        
     }
 
-    #dropdown:hover #menu_headline {
-        text-decoration:underline;
-    }
+            #dropdown:hover #menu_headline {
+                text-decoration: underline;
+                cursor: pointer;
+                color:black;
+            }
     /*desktop*/
     @media (min-width: 768px) {
         html {
