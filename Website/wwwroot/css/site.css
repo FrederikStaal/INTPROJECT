@@ -1,7 +1,11 @@
 ﻿/*Mobile first*/
+
+
 html {
     font-size: 14px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   margin:0px;
+   padding:0px;
 }
 
 body {
@@ -154,7 +158,8 @@ input {
     width:100%;
 }
 #menu_headline {
-    color:white;
+    color: white;
+    padding: 12px 16px;
 }
 #dropdown_nav {
     visibility: hidden;
