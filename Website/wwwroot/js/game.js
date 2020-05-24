@@ -124,4 +124,5 @@ function nextTurn() {
     newCard();
     console.log(currentCard);
     console.log(status);
+    console.log(turn);
 }
