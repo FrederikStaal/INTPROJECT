@@ -2,9 +2,9 @@
 @{
     ViewData["Title"] = "Index";
 }
-    
-    <header>
-        <div id="dropdown_menu">
+
+    <header id="game_header">
+        <div id="dropdown">
             <h3 id="menu_headline">Menu</h3>
             <div id="dropdown_nav">
                 <a href="#">Log-out</a>
@@ -13,15 +13,15 @@
             </div>
             </div>
     </header>
-    <script src="~/js/game.js"></script>
-    <section>
+    <section id="section_game">
+        <div id="container">
 
-        <img src="~/images/the_general.png" id="gameImage">
-        
+            <img src="~/images/the_general.png" id="gameImage">
+        </div>
     </section>
 <body>
     <div id="cardContainer"></div>
 </body>
 
 
-    
+    <script src="~/js/game.js"></script>

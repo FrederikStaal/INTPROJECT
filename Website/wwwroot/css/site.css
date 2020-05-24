@@ -147,9 +147,36 @@ input {
     transform: rotate(345deg);
 }
 
-#dropdown_nav {
-    display:none;
+/*Style for the game page*/
+
+/*Dropdown menu*/
+#dropdown {
+    width:100%;
 }
+#menu_headline {
+    color:white;
+}
+#dropdown_nav {
+    visibility: hidden;
+    background-color: #1A4C74;
+    z-index: 1;
+}
+
+    #dropdown_nav a {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+    }
+
+#dropdown:hover{
+    background-color: #1A4C74;
+}
+    #dropdown:hover #dropdown_nav {
+        visibility: visible;
+        cursor: pointer;
+    }
+    
+
 
 
 /*desktop*/
