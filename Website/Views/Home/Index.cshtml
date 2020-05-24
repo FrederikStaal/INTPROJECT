@@ -9,15 +9,14 @@
             <div id="flexbox">
                 <h1>Govern</h1>
                 <div class="form">
-
                     <form id="LoginForm" action="" method="post">
                         <div class="flex-inner">
                             <h3>Rule the country!</h3>
-                            <input class="Text_input" type="text" placeholder="username" required>
-                            <input class="Text_input" type="password" placeholder="password" required>
+                            <input class="Text_input" type="text" placeholder="username" >
+                            <input class="Text_input" type="password" placeholder="password" >
                         </div>
                         <div class="flex-buttons">
-                            <input class="button" type="submit" value="Log-in">
+                            <input type="button" value="Create" onclick="location.href='@Url.Action("Cookie", "Home")'" />
                             <input class="button" type="button" value="Create account" onclick="">
                         </div>
                     </form>

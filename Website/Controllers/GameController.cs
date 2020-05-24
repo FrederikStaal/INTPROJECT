@@ -10,7 +10,10 @@ namespace Website.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            //return View();
+            
+            return View("~/Views/Game/Index.cshtml");
+
         }
     }
 }
