@@ -111,7 +111,7 @@ namespace Website.Data
                 //diplomat - relation 100
                 new Card {ImageRef = "diplomat.png",Text = "My friend… We have been doing the bidding of the major countries for so long, that we have no influence on anything anymore", 
                     Economy1 = 0, Economy2 = 0, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 =0, Happiness1 = 0, Happiness2 = 0,
-                    CharacterID = 4},
+                    CharacterID = 4}
 
                 //Cards related to the advicer
             };
