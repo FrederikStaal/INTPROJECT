@@ -152,7 +152,19 @@ input {
 }
 
 /*Style for the game page*/
+.game-image-icon {
+    width: 50px;
+    height: auto;
+}
 
+.game-icon {
+
+}
+
+.game-icon * {
+    width: 100px;
+    height: 100px;
+}
 
 #pillars {
     grid-area:1/1/2/6;
