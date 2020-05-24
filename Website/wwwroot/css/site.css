@@ -20,7 +20,7 @@ body {
     grid-row-gap: 0px;
 }
 
-section 
+#loginHome 
 {
     grid-area: 1 / 2 / 6 / 5;
 }
@@ -147,7 +147,9 @@ input {
     transform: rotate(345deg);
 }
 
-
+#dropdown_nav {
+    display:none;
+}
 
 
 /*desktop*/
