@@ -158,12 +158,20 @@ input {
 }
 
 .game-icon {
-
+    display:inline-block;
+    width:100px; 
+    height:100px;
+    margin: 0 auto; 
+    background: black; 
+    position:relative; 
+    border:5px solid black; 
+    border-radius: 10px; 
+    box-shadow: 0 5px 50px #333
 }
 
-.game-icon * {
-    width: 100px;
-    height: 100px;
+.game-icon-canvas {
+    position: relative;
+    z-index: 20;
 }
 
 #pillars {
