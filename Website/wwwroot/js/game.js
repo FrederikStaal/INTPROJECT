@@ -31,11 +31,11 @@ loadData();
 async function loadData() {
     const response = await fetch(cardAPIURL);
     const data = await response.json();
-    cards = data;
+
     generateCardIDs();
     //load cookie data
     if (isValidCookie) {
-        continueGame();
+        continueGame(await Promise.all(data));
     } else {
         startGame(await Promise.all(data));
     }
@@ -44,12 +44,14 @@ async function loadData() {
 
 //called after all data is loaded, saves data from loadData function
 function startGame(data) {
+    cards = data;
 
     //start first turn of game
     nextTurn();
 }
 
-function continueGame() {
+function continueGame(data) {
+    cards = data;
     updateGameData();
     updatePageData();
 }
@@ -142,7 +144,6 @@ function getRandomUnusedCard() {
 function newCard() {
     //~/images/
     currentCard = getRandomUnusedCard();
-    updatePageData();
 }
 
 //takes the result you have agreed to and adds the consequences to status
@@ -169,10 +170,12 @@ function lost() {
 function updatePageData() {
     document.getElementById("gameImage").src = "../images/" + currentCard.imageRef;
     document.getElementById("years_office").innerHTML = "Years in office: " + turn;
+    document.getElementById("Cardtext").innerHTML = currentCard.text;
 }
 
 function nextTurn() {
     turn++;
     newCard();
     updateCookie();
+    updatePageData();
 }
