@@ -192,22 +192,24 @@ input {
     transition: transform 0.5s;
 }
 
- 
-    .answer-button {
-        color: white;
-        font-size: 40px;
-        font-weight: bold;
-        height: 80%;
-        width: 50%;
-        background-color: #1A4C74;
-        border-style: none;
-        border-radius: 20px;
-        box-shadow: 0px 11px 8px -7px rgba(0,0,0,0.29);
-        text-align: center;
-        transition: transform 0.5s;
-    }
+
+.answer-button {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    height: 80%;
+    width: 50%;
+    background-color: #1A4C74;
+    border-style: none;
+    border-radius: 20px;
+    box-shadow: 0px 11px 8px -7px rgba(0,0,0,0.29);
+    text-align: center;
+    transition: transform 0.5s;
+    
+}
     .answer-button:hover {
         transform:scale(1.1);
+        
     }
 
 
