@@ -59,6 +59,7 @@ namespace Website.Data
                 new Card {ImageRef = "prison.png",Text = "You surrendered to the invaders, and spent the rest of your days in prison",
                         Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
                         CharacterID = 7 },
+
                 //death, general if military 100
                 new Card {ImageRef = "the_general.png", Text = "Sir.. The army have no more need of you.. I’ll take over from here",
                         Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
