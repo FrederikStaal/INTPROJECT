@@ -59,6 +59,18 @@ function getCardByID(id) {
     return r;
 }
 
+window.onbeforeunload = function () {
+    return "Do you really want to close?";
+}
+
+$(window).on("beforeunload", function () {
+    return inFormOrLink ? "Do you really want to close?" : null;
+})
+
+$(window).bind("beforeunload", function () {
+    return true || confirm("Do you really want to close?");
+}); 
+
 //returns list of unused cards (cards)
 function getUnusedCardIDs() {
     //return list
