@@ -18,7 +18,18 @@ let cardIDs = new Array(); //ids of all cards, incase we mess up and dont have t
 let cardIDsUsed = new Array(); //ids of cards that have been used, can never be longer than reuse factor
 let reuseFactor = 2; //how many turns before a card can be used again
 
+//
+let moneyCanvas = document.getElementById("game-money-canvas");
+let moneyImage = document.getElementById("money-icon");
+let militaryCanvas = document.getElementById("game-military-canvas");
+let militaryImage = document.getElementById("military-icon");
+let happinessCanvas = document.getElementById("game-happiness-canvas");
+let happinesImage = document.getElementById("happiness-icon");
+let relationsCanvas = document.getElementById("game-relations-canvas");
+let relationsImage = document.getElementById("relations-icon");
+
 //game variables
+let hasLost = false;
 let status = { //status of empire, range from 0 to 100
     military: 50,
     happiness: 50,
@@ -63,11 +74,44 @@ function continueGame(data) {
 function updateGameData() {
     cookieData = JSON.parse(getCookie(cookieName));
     status.military = cookieData.military;
-    status.happines = cookieData.happiness;
-    status.relation = cookieData.relations;
+    status.happiness = cookieData.happiness;
+    status.relations = cookieData.relations;
     status.economy = cookieData.economy;
     turn = cookieData.turn;
     currentCard = getCardByID(cookieData.currentCardID);
+}
+
+//Canvas and icon stuff
+function updatePageData() {
+    //page elements
+    document.getElementById("gameImage").src = "../images/" + currentCard.imageRef;
+    document.getElementById("years_office").innerHTML = "Years in office: " + turn;
+    document.getElementById("Cardtext").innerHTML = currentCard.text;
+
+    drawIcon(moneyCanvas, status.economy, moneyImage);
+    drawIcon(militaryCanvas, status.military, militaryImage);
+    drawIcon(happinessCanvas, status.happiness, happinesImage);
+    drawIcon(relationsCanvas, status.relations, relationsImage);
+}
+
+function drawIcon(canvas, status, image) {
+    canvas.width = 100;
+    canvas.height = 100;
+    let imageWidth = 50;
+    let imageHeight = 50;
+    let startRadian = Math.PI / 2;
+    let statusRadians = status / 50 * Math.PI + startRadian;
+    let ctx = canvas.getContext("2d");
+    let centerX = canvas.width / 2;
+    let centerY = canvas.height / 2;
+
+
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "#ffffff";
+    ctx.arc(centerX, centerY, 48, startRadian, statusRadians);
+    ctx.stroke();
+    ctx.drawImage(image, imageWidth / 2, imageHeight / 2, imageWidth, imageHeight);
 }
 
 //saves game data to cookie
@@ -151,79 +195,54 @@ function newCard() {
 
 //takes the result you have agreed to and adds the consequences to status
 function agree() {
-    status.military += parseInt(currentCard.military1);
-    status.relations += parseInt(currentCard.relations1);
-    status.happiness += parseInt(currentCard.happiness1);
-    status.economy += parseInt(currentCard.economy1);
-    nextTurn();
+    if (!hasLost) {
+        status.military += parseInt(currentCard.military1);
+        status.relations += parseInt(currentCard.relations1);
+        status.happiness += parseInt(currentCard.happiness1);
+        status.economy += parseInt(currentCard.economy1);
+        nextTurn();
+    }
 }
 
 function disagree() {
-    status.military += parseInt(currentCard.military2);
-    status.relations += parseInt(currentCard.relations2);
-    status.happiness += parseInt(currentCard.happiness2);
-    status.economy += parseInt(currentCard.economy2);
-    nextTurn();
+    if (!hasLost) {
+        status.military += parseInt(currentCard.military2);
+        status.relations += parseInt(currentCard.relations2);
+        status.happiness += parseInt(currentCard.happiness2);
+        status.economy += parseInt(currentCard.economy2);
+        nextTurn();
+    }
+
 }
 
 function lost() {
-    cookieData.isValid = 0;
+    hasLost = true;
+    document.cookie = cookieName + "=" + "";
 }
 
+//resets game
 function reset() {
     status.economy = 50;
-    status.relation = 50;
-    status.happines = 50;
+    status.relations = 50;
+    status.happiness = 50;
     status.military = 50;
     turn = -1;
     nextTurn();
 }
 
-let moneyCanvas = document.getElementById("game-money-canvas");
-let moneyImage = document.getElementById("money-icon");
-let militaryCanvas = document.getElementById("game-military-canvas");
-let militaryImage = document.getElementById("military-icon");
-let happinessCanvas = document.getElementById("game-happiness-canvas");
-let happinesImage = document.getElementById("happiness-icon");
-let relationsCanvas = document.getElementById("game-relations-canvas");
-let relationsImage = document.getElementById("relations-icon");
-
-function updatePageData() {
-    //page elements
-    document.getElementById("gameImage").src = "../images/" + currentCard.imageRef;
-    document.getElementById("years_office").innerHTML = "Years in office: " + turn;
-    document.getElementById("Cardtext").innerHTML = currentCard.text;
-
-    drawIcon(moneyCanvas, status.economy, moneyImage);
-    drawIcon(militaryCanvas, status.military, militaryImage);
-    drawIcon(happinessCanvas, status.happiness, happinesImage);
-    drawIcon(relationsCanvas, status.relations, relationsImage);
-
-    //game icons and canvases
-
-}
-
-function drawIcon(canvas, status, image) {
-    canvas.width = 100;
-    canvas.height = 100;
-    let imageWidth = 50;
-    let imageHeight = 50;
-    let startRadian = Math.PI / 2;
-    let statusRadians = status / 50 * Math.PI + startRadian;
-    let ctx = canvas.getContext("2d");
-    let centerX = canvas.width / 2;
-    let centerY = canvas.height / 2;
-
-
-    ctx.beginPath();
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = "#ffffff";
-    ctx.arc(centerX, centerY, 48, startRadian, statusRadians);
-    ctx.stroke();
-    ctx.drawImage(image, imageWidth / 2, imageHeight / 2, imageWidth, imageHeight);
+function checkIfLost() {
+    if (status.military <= 0 || status.military >= 100)
+        lost();
+    if (status.relations <= 0 || status.relations >= 100)
+        lost();
+    if (status.happiness <= 0 || status.happiness >= 100)
+        lost();
+    if (status.economy <= 0 || status.economy >= 100)
+        lost();
 }
 
 function nextTurn() {
+    checkIfLost();
     turn++;
     newCard();
     updateCookie();
