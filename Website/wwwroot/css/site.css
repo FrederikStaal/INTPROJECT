@@ -1,5 +1,8 @@
 ﻿/*Mobile first*/
 
+.hidden {
+    display: none;
+}
 
 html {
     font-size: 14px;
@@ -157,14 +160,12 @@ input {
     height: auto;
 }
 
-.game-icon {
 
-}
     
-    .game-icon * {
-        width: 100px;
-        height: 100px;
-    }
+.game-icon * {
+    width: 100px;
+    height: 100px;
+}
 
 #pillars {
     grid-area:1/1/2/6;

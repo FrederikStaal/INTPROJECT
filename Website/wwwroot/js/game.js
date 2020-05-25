@@ -82,6 +82,7 @@ function updateCookie() {
     document.cookie = cookieName + "=" + JSON.stringify(cookieData);
 }
 
+//from stack overflow
 function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
@@ -169,10 +170,57 @@ function lost() {
     cookieData.isValid = 0;
 }
 
+function reset() {
+    status.economy = 50;
+    status.relation = 50;
+    status.happines = 50;
+    status.military = 50;
+    turn = -1;
+    nextTurn();
+}
+
+let moneyCanvas = document.getElementById("game-money-canvas");
+let moneyImage = document.getElementById("money-icon");
+let militaryCanvas = document.getElementById("game-military-canvas");
+let militaryImage = document.getElementById("military-icon");
+let happinessCanvas = document.getElementById("game-happiness-canvas");
+let happinesImage = document.getElementById("happiness-icon");
+let relationsCanvas = document.getElementById("game-relations-canvas");
+let relationsImage = document.getElementById("relations-icon");
+
 function updatePageData() {
+    //page elements
     document.getElementById("gameImage").src = "../images/" + currentCard.imageRef;
     document.getElementById("years_office").innerHTML = "Years in office: " + turn;
     document.getElementById("Cardtext").innerHTML = currentCard.text;
+
+    drawIcon(moneyCanvas, status.economy, moneyImage);
+    drawIcon(militaryCanvas, status.military, militaryImage);
+    drawIcon(happinessCanvas, status.happiness, happinesImage);
+    drawIcon(relationsCanvas, status.relations, relationsImage);
+
+    //game icons and canvases
+
+}
+
+function drawIcon(canvas, status, image) {
+    canvas.width = 100;
+    canvas.height = 100;
+    let imageWidth = 50;
+    let imageHeight = 50;
+    let startRadian = Math.PI / 2;
+    let statusRadians = status / 50 * Math.PI + startRadian;
+    let ctx = canvas.getContext("2d");
+    let centerX = canvas.width / 2;
+    let centerY = canvas.height / 2;
+
+
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "#ffffff";
+    ctx.arc(centerX, centerY, 48, startRadian, statusRadians);
+    ctx.stroke();
+    ctx.drawImage(image, imageWidth / 2, imageHeight / 2, imageWidth, imageHeight);
 }
 
 function nextTurn() {
