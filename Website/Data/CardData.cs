@@ -102,7 +102,7 @@ namespace Website.Data
                     Economy1 = -5, Economy2 = 0, Military1 = -5, Military2 = 0, Relations1 = 0, Relations2 = 0, Happiness1 = 10, Happiness2 = -10,
                     CharacterID = 4},
                 new Card {ImageRef = "minister_of_trade.png",Text = "G' day... Entrepreneurs are potentially dodging taxes, let us check a small sample pool of these suckers and punish them to encourage others to pay proper taxes!",
-                    Economy1 = 0, Economy2 = 0, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 =0, Happiness1 = 0,Happiness2 = 0,
+                    Economy1 = 10, Economy2 = -10, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 =0, Happiness1 = -10,Happiness2 = 10,
                     CharacterID = 4},
                 new Card {ImageRef = "minister_of_trade.png",Text = "", Economy1 = 0, Economy2 = 0, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 =0, Happiness1 = 0, Happiness2 = 0,
                     CharacterID = 4},
@@ -110,10 +110,59 @@ namespace Website.Data
 
                 //diplomat - relation 100
                 new Card {ImageRef = "diplomat.png",Text = "My friend… We have been doing the bidding of the major countries for so long, that we have no influence on anything anymore", 
-                    Economy1 = 0, Economy2 = 0, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 =0, Happiness1 = 0, Happiness2 = 0,
-                    CharacterID = 4}
+                    Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
+                    CharacterID = 4},              
+                new Card {ImageRef = "outsiderelation=100.png",Text = "it doesn’t matter what you say.. You are already a puppet of the outside world",
+                    Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
+                    CharacterID = 4},               
+                new Card {ImageRef = "outsiderelation=100.png",Text = "it doesn’t matter what you say.. You are already a puppet of the outside world",
+                    Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
+                    CharacterID = 4},
+                // relation 0
+                new Card {ImageRef = "diplomat.png",Text = "My friend… The major countries have made you an enemy of the world society and demand you to resign",
+                    Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
+                    CharacterID = 4},
+                //yes
+                new Card {ImageRef = "bike.png",Text = "You agreed to resign from your post, but luckily you were able to get your old paper route back",
+                    Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
+                    CharacterID = 4},
+                //no
+                new Card {ImageRef = "dead.png",Text = "The diplomat was hired to assassinate you and poisoned your cereal",
+                    Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
+                    CharacterID = 4},
 
-                //Cards related to the advicer
+                // advisor - happiness 0
+                new Card {ImageRef = "advicer.png",Text = "Master..The population is so low, that there is no one left to rule?",
+                    Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
+                    CharacterID = 4},
+                // advisor - happiness 100
+                new Card {ImageRef = "advicer.png",Text = "The people has gathered outside and they want democracy",
+                    Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
+                    CharacterID = 4},
+                //yes
+                new Card {ImageRef = "advicer.png",Text = "You were not elected and was forced to work your old paper route again",
+                    Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
+                    CharacterID = 4},
+                //no
+                new Card {ImageRef = "advicer.png",Text = "You were not able to contain the masses and you were thrown to prison by the public",
+                    Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
+                    CharacterID = 4},
+
+                //advisor
+                new Card {ImageRef = "advicer.png",Text = "We miss essential skilled workforce, I suggest we import foreigners and treat them like slaves",
+                    Economy1 = 20, Economy2 = -10, Military1 = 10, Military2 = -10, Relations1 = 20, Relations2 =-10, Happiness1 = 10, Happiness2 = 5,
+                    CharacterID = 4},
+                new Card {ImageRef = "advicer.png",Text = "These immigirants gather in same neighborhoods where high drug related crime is being reported, I advice we legalize all the banned substances",
+                    Economy1 = 40, Economy2 = -10, Military1 = -50, Military2 = 0, Relations1 = 20, Relations2 =00, Happiness1 = 30, Happiness2 = -10,
+                    CharacterID = 4},
+                new Card {ImageRef = "advicer.png",Text = "Master..The people grow old, we could use more newborns in our country, let us run creation-of-family stimulating ads on national television",
+                    Economy1 = -10, Economy2 = 0, Military1 = 10, Military2 = 00, Relations1 = 10, Relations2 =0, Happiness1 = 30, Happiness2 = -10,
+                    CharacterID = 4},
+
+
+                //diplomat
+
+                //media
             };
             return cards;
         }
