@@ -339,3 +339,4 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 Website/Data/migrations/20200523145747_InitialCreate.cs
+Website/appsettings.json

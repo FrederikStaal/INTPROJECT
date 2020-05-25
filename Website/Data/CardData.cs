@@ -17,8 +17,6 @@ namespace Website.Data
             //database context
             var context = serviceScope.ServiceProvider.GetService<GameContext>();
 
-            //make sure database exists if not then create it
-            context.Database.EnsureCreated();
 
             //deletes all data in card table, but leaves card table itself
             context.Database.ExecuteSqlRaw("TRUNCATE TABLE Card");
