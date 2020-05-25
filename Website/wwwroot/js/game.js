@@ -1,6 +1,11 @@
 //url of the card api
 let cardAPIURL = window.location.href.replace("/game", "/api/cards");
 
+//cookie name
+let cookieName = "saveData";
+let cookieData = {};
+let isValidCookie = JSON.parse(getCookie(cookieName)).isValid;
+
 //card handling
 let cards; //all cards in game
 let currentCard; //current card displayed
@@ -20,21 +25,62 @@ let turn = -1; //turns since start, starts at -1 because  1 is added at game sta
 //Start the game by loading the card data and saving it
 loadData();
 
+
+
 //get card data from json
 async function loadData() {
     const response = await fetch(cardAPIURL);
     const data = await response.json();
-    //after data is loaded, execute startup function and pass in json data
-    startup(await Promise.all(data));
+    cards = data;
+    generateCardIDs();
+    //load cookie data
+    if (isValidCookie) {
+        continueGame();
+    } else {
+        startGame(await Promise.all(data));
+    }
+
 }
 
 //called after all data is loaded, saves data from loadData function
-function startup(data) {
-    //save card data from json to cards variable
-    cards = data;
-    generateCardIDs();
+function startGame(data) {
+
     //start first turn of game
     nextTurn();
+}
+
+function continueGame() {
+    updateGameData();
+    updatePageData();
+}
+
+//saves cookie data to game
+function updateGameData() {
+    cookieData = JSON.parse(getCookie(cookieName));
+    status.military = cookieData.military;
+    status.happines = cookieData.happiness;
+    status.relation = cookieData.relations;
+    status.economy = cookieData.economy;
+    turn = cookieData.turn;
+    currentCard = getCardByID(cookieData.currentCardID);
+}
+
+//saves game data to cookie
+function updateCookie() {
+    cookieData.isValid = 1;
+    cookieData.turn = turn;
+    cookieData.military = status.military;
+    cookieData.happiness = status.happiness;
+    cookieData.relations = status.relations;
+    cookieData.economy = status.economy;
+    cookieData.currentCardID = currentCard.cardID;
+    document.cookie = cookieName + "=" + JSON.stringify(cookieData);
+}
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
 //creates list of ids for all cards
@@ -58,18 +104,6 @@ function getCardByID(id) {
     });
     return r;
 }
-
-window.onbeforeunload = function () {
-    return "Do you really want to close?";
-}
-
-$(window).on("beforeunload", function () {
-    return inFormOrLink ? "Do you really want to close?" : null;
-})
-
-$(window).bind("beforeunload", function () {
-    return true || confirm("Do you really want to close?");
-}); 
 
 //returns list of unused cards (cards)
 function getUnusedCardIDs() {
@@ -108,7 +142,7 @@ function getRandomUnusedCard() {
 function newCard() {
     //~/images/
     currentCard = getRandomUnusedCard();
-    document.getElementById("gameImage").src = "../images/" + currentCard.imageRef;
+    updatePageData();
 }
 
 //takes the result you have agreed to and adds the consequences to status
@@ -128,13 +162,17 @@ function disagree() {
     nextTurn();
 }
 
-//rare cardS??
+function lost() {
+    cookieData.isValid = 0;
+}
 
+function updatePageData() {
+    document.getElementById("gameImage").src = "../images/" + currentCard.imageRef;
+    document.getElementById("years_office").innerHTML = "Years in office: " + turn;
+}
 
 function nextTurn() {
     turn++;
     newCard();
-    console.log(currentCard);
-    console.log(status);
-    console.log(turn);
+    updateCookie();
 }

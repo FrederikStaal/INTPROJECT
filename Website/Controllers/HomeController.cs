@@ -14,6 +14,7 @@ namespace Website.Controllers
     {
         public IActionResult Index()
         {
+            /*
             if (!HttpContext.Request.Cookies.ContainsKey("savedata"))
             {
                 HttpContext.Response.Cookies.Append("savedata", "");
@@ -24,10 +25,10 @@ namespace Website.Controllers
                 //new JsonObject.Deserialize(HttpContext.Request.Cookies["savedata"]);
                 return View("~/Views/Game/Saved.cshtml");
             }
+            */
 
 
-
-            //return View();
+            return View();
 
             //return game view
             //return View("~/Views/Game/Index.cshtml");
