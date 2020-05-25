@@ -1,10 +1,15 @@
 //url of the card api
 let cardAPIURL = window.location.href.replace("/game", "/api/cards");
 
-//cookie name
+//cookie
 let cookieName = "saveData";
 let cookieData = {};
-let isValidCookie = JSON.parse(getCookie(cookieName)).isValid;
+let isValidCookie;
+try {
+    isValidCookie = JSON.parse(getCookie(cookieName)).isValid;
+} catch {
+    isValidCookie = 0;
+}
 
 //card handling
 let cards; //all cards in game
@@ -24,8 +29,6 @@ let turn = -1; //turns since start, starts at -1 because  1 is added at game sta
 
 //Start the game by loading the card data and saving it
 loadData();
-
-
 
 //get card data from json
 async function loadData() {
@@ -142,7 +145,6 @@ function getRandomUnusedCard() {
 
 //selects new card and assigns it to current card, also updates previouscards
 function newCard() {
-    //~/images/
     currentCard = getRandomUnusedCard();
 }
 
