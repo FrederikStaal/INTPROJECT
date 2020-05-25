@@ -1,10 +1,15 @@
 //url of the card api
 let cardAPIURL = window.location.href.replace("/game", "/api/cards");
 
-//cookie name
+//cookie
 let cookieName = "saveData";
 let cookieData = {};
-let isValidCookie = JSON.parse(getCookie(cookieName)).isValid;
+let isValidCookie;
+try {
+    isValidCookie = JSON.parse(getCookie(cookieName)).isValid;
+} catch {
+    isValidCookie = 0;
+}
 
 //card handling
 let cards; //all cards in game
@@ -25,17 +30,14 @@ let turn = -1; //turns since start, starts at -1 because  1 is added at game sta
 //Start the game by loading the card data and saving it
 loadData();
 
-
-
 //get card data from json
 async function loadData() {
     const response = await fetch(cardAPIURL);
     const data = await response.json();
-    cards = data;
-    generateCardIDs();
+
     //load cookie data
     if (isValidCookie) {
-        continueGame();
+        continueGame(await Promise.all(data));
     } else {
         startGame(await Promise.all(data));
     }
@@ -44,12 +46,15 @@ async function loadData() {
 
 //called after all data is loaded, saves data from loadData function
 function startGame(data) {
-
+    cards = data;
+    generateCardIDs();
     //start first turn of game
     nextTurn();
 }
 
-function continueGame() {
+function continueGame(data) {
+    cards = data;
+    generateCardIDs();
     updateGameData();
     updatePageData();
 }
@@ -140,9 +145,7 @@ function getRandomUnusedCard() {
 
 //selects new card and assigns it to current card, also updates previouscards
 function newCard() {
-    //~/images/
     currentCard = getRandomUnusedCard();
-    updatePageData();
 }
 
 //takes the result you have agreed to and adds the consequences to status
@@ -169,10 +172,12 @@ function lost() {
 function updatePageData() {
     document.getElementById("gameImage").src = "../images/" + currentCard.imageRef;
     document.getElementById("years_office").innerHTML = "Years in office: " + turn;
+    document.getElementById("Cardtext").innerHTML = currentCard.text;
 }
 
 function nextTurn() {
     turn++;
     newCard();
     updateCookie();
+    updatePageData();
 }
