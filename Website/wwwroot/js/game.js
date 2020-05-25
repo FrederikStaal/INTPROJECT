@@ -32,7 +32,6 @@ async function loadData() {
     const response = await fetch(cardAPIURL);
     const data = await response.json();
 
-    generateCardIDs();
     //load cookie data
     if (isValidCookie) {
         continueGame(await Promise.all(data));
@@ -45,13 +44,14 @@ async function loadData() {
 //called after all data is loaded, saves data from loadData function
 function startGame(data) {
     cards = data;
-
+    generateCardIDs();
     //start first turn of game
     nextTurn();
 }
 
 function continueGame(data) {
     cards = data;
+    generateCardIDs();
     updateGameData();
     updatePageData();
 }
