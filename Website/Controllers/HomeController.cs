@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor.Compilation;
 using Microsoft.Extensions.Logging;
+using RestSharp;
 
 namespace Website.Controllers
 {
@@ -13,13 +14,20 @@ namespace Website.Controllers
     {
         public IActionResult Index()
         {
-            // Cookies
+            if (!HttpContext.Request.Cookies.ContainsKey("savedata"))
+            {
+                HttpContext.Response.Cookies.Append("savedata", "");
+                return View("~/Views/Game/Index.cshtml");
+            }
+            else
+            {
+                //new JsonObject.Deserialize(HttpContext.Request.Cookies["savedata"]);
+                return View("~/Views/Game/Saved.cshtml");
+            }
 
-            //check for 'first_request' on client
-            
 
 
-            return View();
+            //return View();
 
             //return game view
             //return View("~/Views/Game/Index.cshtml");
