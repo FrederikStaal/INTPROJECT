@@ -13,15 +13,21 @@ namespace Website.Controllers
     {
         public IActionResult Index()
         {
-            if (!HttpContext.Request.Cookies.ContainsKey("savedata"))
-            {
-                return View("~/Views/Game/Index.cshtml");
-            } else
-            {
-                return View("~/Views/Game/Index.cshtml");
-            }
+            //if (!HttpContext.Request.Cookies.ContainsKey("savedata"))
+            //{
+            //    return View("~/Views/Game/Index.cshtml");
+            //} else
+            //{
+            //    return View("~/Views/Game/Index.cshtml");
+            //}
             //return View("~/Views/Game/Index.cshtml");
+            return View();
 
+        }
+
+        public IActionResult Saved()
+        {
+            return View();
         }
 
         public void SaveData(int turn, int cid, int mil, int hap, int eco, int rel)
