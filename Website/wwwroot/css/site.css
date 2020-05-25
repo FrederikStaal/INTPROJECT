@@ -173,21 +173,21 @@ input {
 
 
 #yes {
-    grid-area: 2/1/5/3;
+    grid-area: 4/1/5/3;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+   
 }
 #no {
-    grid-area: 2/4/5/6;
+    grid-area: 4/4/5/6;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
+    
 }
 
 #game-cards {
-    grid-area: 2/3/5/4;
-    transition: transform 0.5s;
+    grid-area: 2/2/5/5;
+   
 }
 
 
@@ -195,7 +195,7 @@ input {
     color: white;
     font-size: 40px;
     font-weight: bold;
-    height: 80%;
+    height: 50%;
     width: 50%;
     background-color: #1A4C74;
     border-style: none;
@@ -205,10 +205,7 @@ input {
     transition: transform 0.5s;
     
 }
-    .answer-button:hover {
-        transform:scale(1.1);
-        
-    }
+    
 
 
 
@@ -225,13 +222,13 @@ input {
 
 
 #CardText {
-   
-    position:absolute;
-    color:white;
-    text-align:center;
-    width:20%;
-    z-index:1;
-   
+    position: absolute;
+    color: white;
+    text-align: center;
+    width: 55%;
+    z-index: 1;
+    
+    
 }
 
    
@@ -247,12 +244,14 @@ input {
 #menu_headline {
     color: white;
     padding: 0px 25px;
+    font-size:15px;
 }
 #years_office {
     position:absolute;
     color: white;
-   right: 12%;
-   top:  12px;
+   right: 5%;
+   top:  10px;
+   font-size:15px;
 }
 #dropdown_nav {
     visibility: hidden;
@@ -263,8 +262,9 @@ input {
 
     #dropdown_nav a {
         color: white;
-        padding: 12px 26px;
+        padding: 12px 10px;
         text-decoration: none;
+        font-size:10px;
     }
         #dropdown_nav a:hover {
             text-decoration: underline;
@@ -296,4 +296,60 @@ input {
         background-size: cover;
         background-position:center;
     }
+
+
+    /*Gamepage Desktop*/
+
+
+        #game-cards {
+            grid-area: 2/3/5/4;
+            transition: transform 0.5s;
+        }
+        #no {
+            grid-area: 2/4/5/6;
+            justify-content: center;
+            align-items: center;
+        }
+        #yes {
+            grid-area: 2/1/5/3;
+            justify-content: center;
+            align-items: center;
+        }
+        .answer-button {
+            height: 80%;
+            width: 50%;
+        }
+        .answer-button:hover {
+            transform: scale(1.1);
+        }
+        #gameImage {
+            width: 100%;
+        }
+        #CardText {
+            width: 20%;
+        }
+
+        /*Menu*/
+
+        #dropdown{
+
+        }
+        #menu_headline {
+            font-size: 20px;
+        }
+        #years_office {
+            font-size: 20px;
+        }
+        #dropdown_nav{
+
+        }
+            #dropdown_nav a {
+                font-size: 15px;
+                padding: 12px 26px;
+            }
+
+        #dropdown:hover #dropdown_nav {
+            visibility: visible;
+        }
+
 }
