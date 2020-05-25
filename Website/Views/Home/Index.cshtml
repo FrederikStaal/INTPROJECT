@@ -2,7 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-
+    
     <div class="container">
 
         <section id="loginHome">
@@ -16,8 +16,8 @@
                             <input class="Text_input" type="password" placeholder="password" >
                         </div>
                         <div class="flex-buttons">
-                            <input class="button" type="button" value="Log-in" onclick="location.href='@Url.Action("Index", "game")'" />
-                            <input class="button" type="button" value="Create account" onclick="">
+                            <input class="button" type="button" value="Start" onclick="location.href='@Url.Action("Index", "game")'">
+                            <input class="button" type="button" value="Continue" onclick="location.href='@Url.Action("Index", "game")'">
                         </div>
                     </form>
                 </div>
@@ -49,3 +49,10 @@
         </aside>
 
     </div>
+<body>
+    <script>
+        $(window).bind("beforeunload", function () {
+            return true || confirm("Do you really want to close?");
+        }); 
+    </script>
+</body>
