@@ -46,9 +46,6 @@ let status = { //status of empire, range from 0 to 100
 }
 let turn = -1; //turns since start, starts at -1 because  1 is added at game start
 
-
-
-
 // Trying to keep the session going
 var refreshSession = function () {
     var time = 600000; //10 mins
@@ -78,7 +75,6 @@ async function loadData() {
     } else {
         startGame(await Promise.all(data));
     }
-
 }
 
 //called after all data is loaded, saves data from loadData function
@@ -131,19 +127,21 @@ function drawIcon(canvas, status, image, fillColor) {
     let ctx = canvas.getContext("2d");
     let centerX = canvas.width / 2;
     let centerY = canvas.height / 2;
-    let radius = 48;
+    let radius = 46;
 
     ctx.beginPath();
     ctx.fillStyle = fillColor;
     ctx.strokeStyle = "000000";
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 3;
+    ctx.shadowBlur = 5;
+    ctx.shadowColor = "black";
     ctx.moveTo(centerX, centerY);
     ctx.lineTo(centerX, centerY + radius);
 
 
     ctx.arc(centerX, centerY, radius, startRadian, statusRadians);
     ctx.lineTo(centerX, centerY);
-    ctx.stroke();
+    //ctx.stroke();
     ctx.fill();
     ctx.drawImage(image, imageWidth / 2, imageHeight / 2, imageWidth, imageHeight);
 }
@@ -241,12 +239,26 @@ function agree() {
     nextTurn();
 }
 
+function showAgreeResult() {
+    drawIcon(moneyCanvas, status.economy + parseInt(currentCard.economy1), moneyImage, colors.economy);
+    drawIcon(militaryCanvas, status.military + parseInt(currentCard.military1), militaryImage, colors.military);
+    drawIcon(happinessCanvas, status.happiness + parseInt(currentCard.happiness1), happinesImage, colors.happiness);
+    drawIcon(relationsCanvas, status.relations + parseInt(currentCard.relations1), relationsImage, colors.relations);
+}
+
 function disagree() {
     status.military += parseInt(currentCard.military2);
     status.relations += parseInt(currentCard.relations2);
     status.happiness += parseInt(currentCard.happiness2);
     status.economy += parseInt(currentCard.economy2);
     nextTurn();
+}
+
+function showDisagreeResult() {
+    drawIcon(moneyCanvas, status.economy + parseInt(currentCard.economy2), moneyImage, colors.economy);
+    drawIcon(militaryCanvas, status.military + parseInt(currentCard.military2), militaryImage, colors.military);
+    drawIcon(happinessCanvas, status.happiness + parseInt(currentCard.happiness2), happinesImage, colors.happiness);
+    drawIcon(relationsCanvas, status.relations + parseInt(currentCard.relations2), relationsImage, colors.relations);
 }
 
 function lost() {
