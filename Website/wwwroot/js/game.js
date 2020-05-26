@@ -128,7 +128,7 @@ function drawIcon(canvas, status, image, fillColor) {
     let radius = 46;
 
     ctx.beginPath();
-    ctx.fillStyle = pSBC(status / 100, fillColor);
+    ctx.fillStyle = perc2color(status);
     ctx.strokeStyle = "000000";
     ctx.lineWidth = 3;
     ctx.shadowBlur = 5;
@@ -299,29 +299,17 @@ function nextTurn() {
     updatePageData();
 }
 
-//https://stackoverflow.com/questions/7128675/from-green-to-red-color-depend-on-percentage
-var percentColors = [
-    { pct: 0.0, color: { r: 0xff, g: 0x00, b: 0 } },
-    { pct: 0.5, color: { r: 0xff, g: 0xff, b: 0 } },
-    { pct: 1.0, color: { r: 0x00, g: 0xff, b: 0 } }];
-
-var getColorForPercentage = function (pct) {
-    for (var i = 1; i < percentColors.length - 1; i++) {
-        if (pct < percentColors[i].pct) {
-            break;
-        }
+//https://gist.github.com/mlocati/7210513
+function perc2color(perc) {
+    var r, g, b = 0;
+    if (perc < 50) {
+        r = 255;
+        g = Math.round(5.1 * perc);
     }
-    var lower = percentColors[i - 1];
-    var upper = percentColors[i];
-    var range = upper.pct - lower.pct;
-    var rangePct = (pct - lower.pct) / range;
-    var pctLower = 1 - rangePct;
-    var pctUpper = rangePct;
-    var color = {
-        r: Math.floor(lower.color.r * pctLower + upper.color.r * pctUpper),
-        g: Math.floor(lower.color.g * pctLower + upper.color.g * pctUpper),
-        b: Math.floor(lower.color.b * pctLower + upper.color.b * pctUpper)
-    };
-    return 'rgb(' + [color.r, color.g, color.b].join(',') + ')';
-    // or output as hex if preferred
-};
+    else {
+        g = 255;
+        r = Math.round(510 - 5.10 * perc);
+    }
+    var h = r * 0x10000 + g * 0x100 + b * 0x1;
+    return '#' + ('000000' + h.toString(16)).slice(-6);
+}
