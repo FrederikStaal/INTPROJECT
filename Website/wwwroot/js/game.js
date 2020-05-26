@@ -240,7 +240,10 @@ function agree() {
 }
 
 function showAgreeResult() {
-
+    drawIcon(moneyCanvas, status.economy + parseInt(currentCard.economy1), moneyImage, colors.economy);
+    drawIcon(militaryCanvas, status.military + parseInt(currentCard.military1), militaryImage, colors.military);
+    drawIcon(happinessCanvas, status.happiness + parseInt(currentCard.happiness1), happinesImage, colors.happiness);
+    drawIcon(relationsCanvas, status.relations + parseInt(currentCard.relations1), relationsImage, colors.relations);
 }
 
 function disagree() {
@@ -252,7 +255,10 @@ function disagree() {
 }
 
 function showDisagreeResult() {
-
+    drawIcon(moneyCanvas, status.economy + parseInt(currentCard.economy2), moneyImage, colors.economy);
+    drawIcon(militaryCanvas, status.military + parseInt(currentCard.military2), militaryImage, colors.military);
+    drawIcon(happinessCanvas, status.happiness + parseInt(currentCard.happiness2), happinesImage, colors.happiness);
+    drawIcon(relationsCanvas, status.relations + parseInt(currentCard.relations2), relationsImage, colors.relations);
 }
 
 function lost() {
