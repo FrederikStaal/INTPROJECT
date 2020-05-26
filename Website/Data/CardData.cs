@@ -42,7 +42,7 @@ namespace Website.Data
                         Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
                         CharacterID = 7 },
                 // if yes
-                new Card {ImageRef = "prison.png",Text = "You surrendered to the invaders, and spent the rest of your days in prison",
+                new Card {ImageRef = "population=100.png",Text = "You surrendered to the invaders, and spent the rest of your days in prison",
                         Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
                         CharacterID = 7 },
 
@@ -51,7 +51,7 @@ namespace Website.Data
                         Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
                         CharacterID = 1 },
                 // if yes
-                new Card {ImageRef = "prison.png",Text = "The generel spared you and threw you to prison..",
+                new Card {ImageRef = "population=100.png",Text = "The generel spared you and threw you to prison..",
                         Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
                         CharacterID = 7 },
                 // if no
@@ -73,7 +73,7 @@ namespace Website.Data
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                 //yes
-                new Card {ImageRef = "bike.png",Text = "You agreed to resign from your post, but luckily you were able to get your old paper route back",
+                new Card {ImageRef = "happiness=0.png",Text = "You agreed to resign from your post, but luckily you were able to get your old paper route back",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                 //no
@@ -89,11 +89,11 @@ namespace Website.Data
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                 //yes
-                new Card {ImageRef = "bike.png",Text = "You were not elected and was forced to work your old paper route again",
+                new Card {ImageRef = "happiness=0.png",Text = "You were not elected and was forced to work your old paper route again",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                 //no
-                new Card {ImageRef = "prison.png",Text = "You were not able to contain the masses and you were thrown to prison by the public",
+                new Card {ImageRef = "population=100.png",Text = "You were not able to contain the masses and you were thrown to prison by the public",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                 // trade minister 100
@@ -101,11 +101,11 @@ namespace Website.Data
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                 //yes
-                 new Card {ImageRef = "traderboss.png",Text = "The minister of trade took all the money and bought the entire country.. Luckily he gave you a job as his secretary",
+                 new Card {ImageRef = "Trader=leader.png",Text = "The minister of trade took all the money and bought the entire country.. Luckily he gave you a job as his secretary",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                  //no
-                  new Card {ImageRef = "traderboss.png",Text = "The minister of trade took all the money and bought the entire country.. Luckily he gave you a job as his secretary",
+                  new Card {ImageRef = "Trader=leader.png",Text = "The minister of trade took all the money and bought the entire country.. Luckily he gave you a job as his secretary",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                   //trade minister 0
@@ -215,7 +215,7 @@ namespace Website.Data
 
 
                 //media
-                new Card {ImageRef = "media.png",Text = "We saw your leaked emails, discussing on joining forces with your old brother, can you elaborate for us?",
+                new Card {ImageRef = "The_media.png",Text = "We saw your leaked emails, discussing on joining forces with your old brother, can you elaborate for us?",
                     Economy1 = 5, Economy2 = 5, Military1 = 5, Military2 = 5, Relations1 = 5, Relations2 = 5, Happiness1 = 5, Happiness2 = 5,
                     CharacterID = 4},
 
