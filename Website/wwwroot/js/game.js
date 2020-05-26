@@ -34,8 +34,6 @@ let colors = {
     economy: "#33cc33"
 }
 
-
-
 //game variables
 let hasLost = false;
 let status = { //status of empire, range from 0 to 100
@@ -130,7 +128,7 @@ function drawIcon(canvas, status, image, fillColor) {
     let radius = 46;
 
     ctx.beginPath();
-    ctx.fillStyle = pSBC(status / 100, fillColor, false, true);
+    ctx.fillStyle = pSBC((status + 50) / 100, fillColor);
     ctx.strokeStyle = "000000";
     ctx.lineWidth = 3;
     ctx.shadowBlur = 5;
