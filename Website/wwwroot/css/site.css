@@ -157,6 +157,7 @@ input {
     width: 80%;
     margin:1px;
 }
+
 #left .characters {
     transform: rotate(30deg);
     transition: 0.3s;
