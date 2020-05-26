@@ -74,6 +74,7 @@ async function loadData() {
 function startGame(data) {
     cards = data;
     generateCardIDs();
+    hasLost = false;
     //start first turn of game
     nextTurn();
 }
@@ -131,7 +132,12 @@ function drawIcon(canvas, status, image) {
 
 //saves game data to cookie
 function updateCookie() {
-    cookieData.isValid = 1;
+    if (hasLost) {
+        cookieData.isValid = 0;
+    } else {
+        cookieData.isValid = 1;
+    }
+
     cookieData.turn = turn;
     cookieData.military = status.military;
     cookieData.happiness = status.happiness;
@@ -210,59 +216,57 @@ function newCard() {
 
 //takes the result you have agreed to and adds the consequences to status
 function agree() {
-    if (!hasLost) {
-        status.military += parseInt(currentCard.military1);
-        status.relations += parseInt(currentCard.relations1);
-        status.happiness += parseInt(currentCard.happiness1);
-        status.economy += parseInt(currentCard.economy1);
-        nextTurn();
-    }
+    status.military += parseInt(currentCard.military1);
+    status.relations += parseInt(currentCard.relations1);
+    status.happiness += parseInt(currentCard.happiness1);
+    status.economy += parseInt(currentCard.economy1);
+    nextTurn();
 }
 
 function disagree() {
-    if (!hasLost) {
-        status.military += parseInt(currentCard.military2);
-        status.relations += parseInt(currentCard.relations2);
-        status.happiness += parseInt(currentCard.happiness2);
-        status.economy += parseInt(currentCard.economy2);
-        nextTurn();
-    }
-
+    status.military += parseInt(currentCard.military2);
+    status.relations += parseInt(currentCard.relations2);
+    status.happiness += parseInt(currentCard.happiness2);
+    status.economy += parseInt(currentCard.economy2);
+    nextTurn();
 }
 
 function lost() {
+    alert("You have lost");
     hasLost = true;
-    document.cookie = cookieName + "=" + "";
     reset();
 }
 
 //resets game
 function reset() {
+    hasLost = false;
     status.economy = 50;
     status.relations = 50;
     status.happiness = 50;
     status.military = 50;
     turn = -1;
-    
-    startGame();
     nextTurn();
 }
 
 function checkIfLost() {
     if (status.military <= 0 || status.military >= 100)
-        lost();
+        return true;
     if (status.relations <= 0 || status.relations >= 100)
-        lost();
+        return true;
     if (status.happiness <= 0 || status.happiness >= 100)
-        lost();
+        return true;
     if (status.economy <= 0 || status.economy >= 100)
-        lost();
+        return true;
+    return false;
 }
 
 function nextTurn() {
-    checkIfLost();
-    turn++;
-    newCard();
+    if (checkIfLost()) {
+        lost();
+    } else {
+        turn++;
+        newCard();
+    }
     updateCookie();
     updatePageData();
 }
