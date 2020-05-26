@@ -28,92 +28,92 @@ namespace Website.Data
             context.SaveChanges();
         }
 
-        public static List<Card> GetSituationCards(GameContext db)
+        public static List<SituationCard> GetSituationCards(GameContext db)
         {
-            List<Card> sitCards = new List<Card>()
+            List<SituationCard> sitCards = new List<SituationCard>()
             {
                 //outcome, death cards
                 //death, general, if military 0
-                new Card {ImageRef = "the_general.png", Text = "We are being invaded by the neighbouring country and we have no army… We should surrender!",
+                new SituationCard {ImageRef = "the_general.png", Text = "We are being invaded by the neighbouring country and we have no army… We should surrender!",
                         Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
                         CharacterID = 1 },
                 // if no
-                new Card {ImageRef = "dead.png",Text = "You did not surrender, which resulted in you being put to death",
+                new SituationCard {ImageRef = "dead.png",Text = "You did not surrender, which resulted in you being put to death",
                         Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
                         CharacterID = 7 },
                 // if yes
-                new Card {ImageRef = "prison.png",Text = "You surrendered to the invaders, and spent the rest of your days in prison",
+                new SituationCard {ImageRef = "prison.png",Text = "You surrendered to the invaders, and spent the rest of your days in prison",
                         Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
                         CharacterID = 7 },
 
                 //death, general if military 100
-                new Card {ImageRef = "the_general.png", Text = "Sir.. The army have no more need of you.. I’ll take over from here",
+                new SituationCard {ImageRef = "the_general.png", Text = "Sir.. The army have no more need of you.. I’ll take over from here",
                         Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
                         CharacterID = 1 },
                 // if yes
-                new Card {ImageRef = "prison.png",Text = "The generel spared you and threw you to prison..",
+                new SituationCard {ImageRef = "prison.png",Text = "The generel spared you and threw you to prison..",
                         Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
                         CharacterID = 7 },
                 // if no
-                new Card {ImageRef = "dead.png",Text = "The generel didn’t take a no for an answer and shot you on the spot",
+                new SituationCard {ImageRef = "dead.png",Text = "The generel didn’t take a no for an answer and shot you on the spot",
                         Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
                         CharacterID = 7 },
                  //diplomat - relation 100
-                new Card {ImageRef = "diplomat.png",Text = "My friend… We have been doing the bidding of the major countries for so long, that we have no influence on anything anymore",
+                new SituationCard {ImageRef = "diplomat.png",Text = "My friend… We have been doing the bidding of the major countries for so long, that we have no influence on anything anymore",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
-                new Card {ImageRef = "outsiderelation=100.png",Text = "it doesn’t matter what you say.. You are already a puppet of the outside world",
+                new SituationCard {ImageRef = "outsiderelation=100.png",Text = "it doesn’t matter what you say.. You are already a puppet of the outside world",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
-                new Card {ImageRef = "outsiderelation=100.png",Text = "it doesn’t matter what you say.. You are already a puppet of the outside world",
+                new SituationCard {ImageRef = "outsiderelation=100.png",Text = "it doesn’t matter what you say.. You are already a puppet of the outside world",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                 // relation 0
-                new Card {ImageRef = "diplomat.png",Text = "My friend… The major countries have made you an enemy of the world society and demand you to resign",
+                new SituationCard {ImageRef = "diplomat.png",Text = "My friend… The major countries have made you an enemy of the world society and demand you to resign",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                 //yes
-                new Card {ImageRef = "bike.png",Text = "You agreed to resign from your post, but luckily you were able to get your old paper route back",
+                new SituationCard {ImageRef = "bike.png",Text = "You agreed to resign from your post, but luckily you were able to get your old paper route back",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                 //no
-                new Card {ImageRef = "dead.png",Text = "The diplomat was hired to assassinate you and poisoned your cereal",
+                new SituationCard {ImageRef = "dead.png",Text = "The diplomat was hired to assassinate you and poisoned your cereal",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                 // advisor - happiness 0
-                new Card {ImageRef = "advicer.png",Text = "Master..The population is so low, that there is no one left to rule?",
+                new SituationCard {ImageRef = "advicer.png",Text = "Master..The population is so low, that there is no one left to rule?",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                 // advisor - happiness 100
-                new Card {ImageRef = "advicer.png",Text = "The people has gathered outside and they want democracy",
+                new SituationCard {ImageRef = "advicer.png",Text = "The people has gathered outside and they want democracy",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                 //yes
-                new Card {ImageRef = "bike.png",Text = "You were not elected and was forced to work your old paper route again",
+                new SituationCard {ImageRef = "bike.png",Text = "You were not elected and was forced to work your old paper route again",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                 //no
-                new Card {ImageRef = "prison.png",Text = "You were not able to contain the masses and you were thrown to prison by the public",
+                new SituationCard {ImageRef = "prison.png",Text = "You were not able to contain the masses and you were thrown to prison by the public",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                 // trade minister 100
-                new Card {ImageRef = "minister_of_trade.png",Text = "Hey boss… The country  is 100% owned by the private sector..which means me",
+                new SituationCard {ImageRef = "minister_of_trade.png",Text = "Hey boss… The country  is 100% owned by the private sector..which means me",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                 //yes
-                 new Card {ImageRef = "traderboss.png",Text = "The minister of trade took all the money and bought the entire country.. Luckily he gave you a job as his secretary",
+                 new SituationCard {ImageRef = "traderboss.png",Text = "The minister of trade took all the money and bought the entire country.. Luckily he gave you a job as his secretary",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                  //no
-                  new Card {ImageRef = "traderboss.png",Text = "The minister of trade took all the money and bought the entire country.. Luckily he gave you a job as his secretary",
+                  new SituationCard {ImageRef = "traderboss.png",Text = "The minister of trade took all the money and bought the entire country.. Luckily he gave you a job as his secretary",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                   //trade minister 0
-                  new Card {ImageRef = "minister_of_trade.png",Text = "Hey boss.. You are in huge debt and the payday is now!",
+                  new SituationCard {ImageRef = "minister_of_trade.png",Text = "Hey boss.. You are in huge debt and the payday is now!",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
                   //yes&&no
-                  new Card {ImageRef = "dead.png",Text = "The debt collectors threw you in a river and you were never seen again",
+                  new SituationCard {ImageRef = "dead.png",Text = "The debt collectors threw you in a river and you were never seen again",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
             };
