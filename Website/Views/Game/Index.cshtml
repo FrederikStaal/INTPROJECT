@@ -7,7 +7,7 @@
         <div id="dropdown">
             <h3 id="menu_headline">Menu</h3>
             <div id="dropdown_nav">
-                @*<a href="#">Log-out</a>*@
+                <a href="">Exit</a>
                 <a href="javascript:reset();">Restart</a>
                 @*<a href="#">Highscore</a>*@
             </div>
@@ -36,7 +36,12 @@
                 </div>
             </div>
             <div id="yes">
-                <button class="answer-button" onclick="agree();">Yes</button>
+                <button class="answer-button"
+                    onclick="agree();"
+                    onmouseover="showAgreeResult()"
+                    onmouseleave="updatePageData();">
+                    Yes
+                </button>
             </div>
            
             <div id="game-cards">
@@ -45,16 +50,21 @@
             </div>
 
             <div id="no">
-                <button class="answer-button" onclick="disagree();">No</button>
+                <button class="answer-button"
+                    onclick="disagree();"
+                    onmouseover="showDisagreeResult()"
+                    onmouseleave="updatePageData();">
+                No
+                </button>
             </div>
         </div>
     </section>
     
        
-        <img class="hidden" src="~/images/gold.png" id="money-icon"/>
-        <img class="hidden" src="~/images/sword.png" id="military-icon" />
-        <img class="hidden" src="~/images/relation.png" id="relations-icon" />
-        <img class="hidden" src="~/images/public.png" id="happiness-icon" />
+    <img class="hidden" src="~/images/gold.png" id="money-icon"/>
+    <img class="hidden" src="~/images/sword.png" id="military-icon" />
+    <img class="hidden" src="~/images/relation.png" id="relations-icon" />
+    <img class="hidden" src="~/images/public.png" id="happiness-icon" />
    
 
 
