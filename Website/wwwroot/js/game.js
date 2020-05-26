@@ -29,8 +29,10 @@ let relationsCanvas = document.getElementById("game-relations-canvas");
 let relationsImage = document.getElementById("relations-icon");
 let colors = {
     good: "green",
-    bad: "red"
+    bad: "red",
+    base: "#2A6BA4"
 }
+
 
 //game variables
 let hasLost = false;
@@ -107,10 +109,10 @@ function updatePageData() {
     document.getElementById("years_office").innerHTML = "Years in office: " + turn;
     document.getElementById("Cardtext").innerHTML = currentCard.text;
 
-    drawIcon(moneyCanvas, status.economy, moneyImage, "#1F3D57");
-    drawIcon(militaryCanvas, status.military, militaryImage, "#1F3D57");
-    drawIcon(happinessCanvas, status.happiness, happinesImage, "#1F3D57");
-    drawIcon(relationsCanvas, status.relations, relationsImage, "#1F3D57");
+    drawIcon(moneyCanvas, status.economy, moneyImage, colors.base);
+    drawIcon(militaryCanvas, status.military, militaryImage, colors.base);
+    drawIcon(happinessCanvas, status.happiness, happinesImage, colors.base);
+    drawIcon(relationsCanvas, status.relations, relationsImage, colors.base);
 }
 
 function drawIcon(canvas, status, image, fillColor) {
