@@ -13,10 +13,18 @@ html {
 
 body {
     overflow: hidden;
-    background-image: url(../images/mobile_desktop.png);
+    
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+    body.Game {
+        background-image: url(../images/dead.png);
+    }
+
+    body.Home {
+        background-image: url(../images/mobile_desktop.png);
+    }
 
 /*Grid*/
 .container {

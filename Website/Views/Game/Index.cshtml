@@ -2,73 +2,74 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-    <header id="game_header">
-        <div id="dropdown">
-            <h3 id="menu_headline">Menu</h3>
-            <div id="dropdown_nav">
-                <a href="@Url.Action("Index", "home")">Exit</a>
-                <a href="javascript:reset();">Restart</a>
-                @*<a href="#">Highscore</a>*@
-            </div>
-            <h3 id="years_office">Years in office: 0</h3>
-            </div>
-    </header>
-    <section id="section_game">
-        <div class="container">
-
-            <div class="flex-buttons" id="pillars">
-                <div id="game-money" class="game-icon">
-                    <canvas id="game-money-canvas"></canvas>
-
+    <body class="Game">
+        <header id="game_header">
+            <div id="dropdown">
+                <h3 id="menu_headline">Menu</h3>
+                <div id="dropdown_nav">
+                    <a href="@Url.Action("Index", "home")">Exit</a>
+                    <a href="javascript:reset();">Restart</a>
+                    @*<a href="#">Highscore</a>*@
                 </div>
-                <div id="game-happiness" class="game-icon">
-                    <canvas id="game-happiness-canvas"></canvas>
+                <h3 id="years_office">Years in office: 0</h3>
+            </div>
+        </header>
+        <section id="section_game">
+            <div class="container">
 
+                <div class="flex-buttons" id="pillars">
+                    <div id="game-money" class="game-icon">
+                        <canvas id="game-money-canvas"></canvas>
+
+                    </div>
+                    <div id="game-happiness" class="game-icon">
+                        <canvas id="game-happiness-canvas"></canvas>
+
+                    </div>
+                    <div id="game-relations" class="game-icon">
+                        <canvas id="game-relations-canvas"></canvas>
+
+                    </div>
+                    <div id="game-military" class="game-icon">
+                        <canvas id="game-military-canvas"></canvas>
+
+                    </div>
                 </div>
-                <div id="game-relations" class="game-icon">
-                    <canvas id="game-relations-canvas"></canvas>
-
+                <div id="yes">
+                    <button class="answer-button"
+                            onclick="agree();"
+                            onmouseover="showAgreeResult()"
+                            onmouseleave="updatePageData();">
+                        Yes
+                    </button>
                 </div>
-                <div id="game-military" class="game-icon">
-                    <canvas id="game-military-canvas"></canvas>
 
+                <div id="game-cards">
+                    <p id="Cardtext"> Hello sir..! nice to meet you! Ready to kick some ass! SAkl sdlk adflk dflk adfk</p>
+                    <img src="~/images/the_general.png" id="gameImage">
+                </div>
+
+                <div id="no">
+                    <button class="answer-button"
+                            onclick="disagree();"
+                            onmouseover="showDisagreeResult()"
+                            onmouseleave="updatePageData();">
+                        No
+                    </button>
                 </div>
             </div>
-            <div id="yes">
-                <button class="answer-button"
-                    onclick="agree();"
-                    onmouseover="showAgreeResult()"
-                    onmouseleave="updatePageData();">
-                    Yes
-                </button>
-            </div>
-           
-            <div id="game-cards">
-                <p id="Cardtext"> Hello sir..! nice to meet you! Ready to kick some ass! SAkl sdlk adflk dflk adfk</p>
-                <img src="~/images/the_general.png" id="gameImage">
-            </div>
-
-            <div id="no">
-                <button class="answer-button"
-                    onclick="disagree();"
-                    onmouseover="showDisagreeResult()"
-                    onmouseleave="updatePageData();">
-                No
-                </button>
-            </div>
-        </div>
-    </section>
-    
-       
-    <img class="hidden" src="~/images/gold.png" id="money-icon"/>
-    <img class="hidden" src="~/images/sword.png" id="military-icon" />
-    <img class="hidden" src="~/images/relation.png" id="relations-icon" />
-    <img class="hidden" src="~/images/public.png" id="happiness-icon" />
-   
+        </section>
 
 
-    <script src="~/js/game.js"></script>
-    <script>
-        refreshSession();
-    </script>
+        <img class="hidden" src="~/images/gold.png" id="money-icon" />
+        <img class="hidden" src="~/images/sword.png" id="military-icon" />
+        <img class="hidden" src="~/images/relation.png" id="relations-icon" />
+        <img class="hidden" src="~/images/public.png" id="happiness-icon" />
+
+
+
+        <script src="~/js/game.js"></script>
+        <script>
+            refreshSession();
+        </script>
+        </body>

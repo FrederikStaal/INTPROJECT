@@ -2,50 +2,52 @@
     ViewData["Title"] = "Home Page";
 }
 
-    
-    <div class="container">
+    <body class="Home">
+        <div class="container">
 
-        <section id="loginHome">
-            <div class="flexbox">
-                <h1>Govern</h1>
-                <div class="form">
-                    <div class="flex-inner">
-                        <h3 id="game-desc1">
-                            Wanna know how it feels to be a ruler?</h3>
-                        <p id="game-desc">
-                            Fight your way through political issues and keep your ministers happy in order to stay in office. The consequenses might be dire if you don't!'
-                        </p>
-                        <img src="~/images/me.png" id="player-character">
+            <section id="loginHome">
+                <div class="flexbox">
+                    <h1>Govern</h1>
+                    <div class="form">
+                        <div class="flex-inner">
+                            <h3 id="game-desc1">
+                                Wanna know how it feels to be a ruler?
+                            </h3>
+                            <p id="game-desc">
+                                Fight your way through political issues and keep your ministers happy in order to stay in office. The consequenses might be dire if you don't!'
+                            </p>
+                            <img src="~/images/me.png" id="player-character">
+                        </div>
+                        <div class="flex-buttons">
+                            <input class="button" type="button" value="Start" onclick="location.href='@Url.Action("Index", "game")'">
+                            <input class="button" type="button" value="Continue" onclick="location.href='@Url.Action("Index", "game")'">
+                        </div>
                     </div>
-                    <div class="flex-buttons">
-                        <input class="button" type="button" value="Start" onclick="location.href='@Url.Action("Index", "game")'">
-                        <input class="button" type="button" value="Continue" onclick="location.href='@Url.Action("Index", "game")'">
-                    </div>
+
+
+
                 </div>
 
-         
+            </section>
+            <aside id="left">
+                <div class="flexaside-inner">
+                    <img class="characters" src="../images/minister of trade_home.png" alt="Minister of trade" />
+                    <img class="characters" src="../images/advicer_home.png" alt="The advicer" />
+                </div>
+            </aside>
+            <aside id="right">
+                <div class="flexaside-inner">
+                    <img class="characters" src="../images/the general_home.png" alt="The Generel" />
+                    <img class="characters" src="../images/diplomat_home.png" alt="The diplomat" />
+                </div>
+            </aside>
 
-            </div>
-                   
-        </section>
-        <aside id="left">
-            <div class="flexaside-inner">
-                <img class="characters" src="../images/minister of trade_home.png" alt="Minister of trade" />
-                <img class="characters" src="../images/advicer_home.png" alt="The advicer" />
-            </div>
-        </aside>
-        <aside id="right">
-            <div class="flexaside-inner">
-                <img class="characters" src="../images/the general_home.png" alt="The Generel" />
-                <img class="characters" src="../images/diplomat_home.png" alt="The diplomat" />
-            </div>
-        </aside>
-
-    </div>
-@*<body>
-    <script>
-        $(window).bind("beforeunload", function () {
-            return true || confirm("Do you really want to close?");
-        }); 
-    </script>
-</body>*@
+        </div>
+        @*<body>
+            <script>
+                $(window).bind("beforeunload", function () {
+                    return true || confirm("Do you really want to close?");
+                });
+            </script>
+        </body>*@
+        </body>
