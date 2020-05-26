@@ -23,30 +23,15 @@ namespace Website.Data
             //re add all data to database
             var cards = GetCards(context).ToArray();
             context.Card.AddRange(cards);
+            var sitCards = GetSituationCards(context).ToArray();
+            context.SituationCard.AddRange(sitCards);
             context.SaveChanges();
         }
 
-        public static List<Card> GetCards(GameContext db)
+        public static List<Card> GetSituationCards(GameContext db)
         {
-            List<Card> cards = new List<Card>()
+            List<Card> sitCards = new List<Card>()
             {
-                //Cards related to the general 
-                new Card {ImageRef = "the_general.png", Text = "Sir!...We need more money to secure the borders, to keep the public safe from invaders",
-                    Economy1 = -15, Economy2 = 15, Military1 = 10, Military2 = -10, Relations1 = 0, Relations2 = 0, Happiness1 = 0, Happiness2 = 0,
-                    CharacterID = 1},
-                new Card {ImageRef = "the_general.png", Text = "Sir!.. We should implement enlistments, so we can insure that our army keeps growing",
-                    Economy1 = 0, Economy2 = 0, Military1 = 15, Military2 = -15, Relations1 = 0, Relations2 = 0, Happiness1 = -15, Happiness2 = 15,
-                    CharacterID = 1},
-                new Card {ImageRef = "the_general.png", Text = "Sir!.. We need to assign more soldiers to patrol the borders... We can’t trust the Foreigners",
-                    Economy1 = 0, Economy2 = 0, Military1 = -10, Military2 = 10, Relations1 = -20, Relations2 = 20, Happiness1 = 10, Happiness2 = -10,
-                    CharacterID = 1},
-                new Card {ImageRef = "the_general.png", Text = "Sir!.. The soldiers are complaining about the food at the barracks. Let’s hire a decent chef",
-                    Economy1 = -10, Economy2 = 10, Military1 = 15, Military2 = -15, Relations1 = 0, Relations2 = 0, Happiness1 = 0, Happiness2 = 0,
-                    CharacterID = 1},
-                new Card {ImageRef = "the_general.png",Text = "Sir!.. The diplomat is a STUPID F#$@ LITTLE #$@&%* apple  #$@&%*!?!?! Don’t you agree?",
-                    Economy1 = 0, Economy2 = 0, Military1 = 10, Military2 = -10, Relations1 = -10, Relations2 = 10, Happiness1 = 0, Happiness2 = 0,
-                    CharacterID = 1},
-
                 //outcome, death cards
                 //death, general, if military 0
                 new Card {ImageRef = "the_general.png", Text = "We are being invaded by the neighbouring country and we have no army… We should surrender!",
@@ -73,8 +58,7 @@ namespace Website.Data
                 new Card {ImageRef = "dead.png",Text = "The generel didn’t take a no for an answer and shot you on the spot",
                         Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
                         CharacterID = 7 },
-
-                //diplomat - relation 100
+                 //diplomat - relation 100
                 new Card {ImageRef = "diplomat.png",Text = "My friend… We have been doing the bidding of the major countries for so long, that we have no influence on anything anymore",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
@@ -132,7 +116,32 @@ namespace Website.Data
                   new Card {ImageRef = "dead.png",Text = "The debt collectors threw you in a river and you were never seen again",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
                     CharacterID = 4},
+            };
+            return sitCards;
+        }
 
+        public static List<Card> GetCards(GameContext db)
+        {
+            List<Card> cards = new List<Card>()
+            {
+                //Cards related to the general 
+                new Card {ImageRef = "the_general.png", Text = "Sir!...We need more money to secure the borders, to keep the public safe from invaders",
+                    Economy1 = -15, Economy2 = 15, Military1 = 10, Military2 = -10, Relations1 = 0, Relations2 = 0, Happiness1 = 0, Happiness2 = 0,
+                    CharacterID = 1},
+                new Card {ImageRef = "the_general.png", Text = "Sir!.. We should implement enlistments, so we can insure that our army keeps growing",
+                    Economy1 = 0, Economy2 = 0, Military1 = 15, Military2 = -15, Relations1 = 0, Relations2 = 0, Happiness1 = -15, Happiness2 = 15,
+                    CharacterID = 1},
+                new Card {ImageRef = "the_general.png", Text = "Sir!.. We need to assign more soldiers to patrol the borders... We can’t trust the Foreigners",
+                    Economy1 = 0, Economy2 = 0, Military1 = -10, Military2 = 10, Relations1 = -20, Relations2 = 20, Happiness1 = 10, Happiness2 = -10,
+                    CharacterID = 1},
+                new Card {ImageRef = "the_general.png", Text = "Sir!.. The soldiers are complaining about the food at the barracks. Let’s hire a decent chef",
+                    Economy1 = -10, Economy2 = 10, Military1 = 15, Military2 = -15, Relations1 = 0, Relations2 = 0, Happiness1 = 0, Happiness2 = 0,
+                    CharacterID = 1},
+                new Card {ImageRef = "the_general.png",Text = "Sir!.. The diplomat is a STUPID F#$@ LITTLE #$@&%* apple  #$@&%*!?!?! Don’t you agree?",
+                    Economy1 = 0, Economy2 = 0, Military1 = 10, Military2 = -10, Relations1 = -10, Relations2 = 10, Happiness1 = 0, Happiness2 = 0,
+                    CharacterID = 1},
+
+                
 
                 //Normal Cards related to the minister of trade
                 new Card {ImageRef = "minister_of_trade.png", Text = "Hey boss.. We should raise the taxes! The public don’t need that money anyway",
@@ -165,7 +174,7 @@ namespace Website.Data
                 new Card {ImageRef = "minister_of_trade.png",Text = "", Economy1 = 0, Economy2 = 0, Military1 = 0, Military2 = 0, Relations1 = 0, Relations2 =0, Happiness1 = 0, Happiness2 = 0,
                     CharacterID = 4},
 
-                
+   
 
                 //advisor
                 new Card {ImageRef = "advicer.png",Text = "We miss essential skilled workforce, I suggest we import foreigners and treat them like slaves",

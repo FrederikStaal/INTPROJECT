@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Website.Models;
 
-namespace Website.Data.migrations
+namespace Website.Data.Migrations
 {
     [DbContext(typeof(GameContext))]
-    [Migration("20200525150925_InitialCreate")]
+    [Migration("20200526102313_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
