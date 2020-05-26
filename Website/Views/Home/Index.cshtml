@@ -10,8 +10,10 @@
                 <h1>Govern</h1>
                 <div class="form">
                     <div class="flex-inner">
+                        <h3 id="game-desc1">
+                            Wanna know how it feels to be a ruler?</h3>
                         <p id="game-desc">
-                            Wanna know how it feels to be a ruler? Fight your way through political issues and keep your ministers happy in order to stay in office. The consequenses might be dire if you don't!'
+                            Fight your way through political issues and keep your ministers happy in order to stay in office. The consequenses might be dire if you don't!'
                         </p>
                         <img src="~/images/me.png" id="player-character">
                     </div>
@@ -20,6 +22,9 @@
                         <input class="button" type="button" value="Continue" onclick="location.href='@Url.Action("Index", "game")'">
                     </div>
                 </div>
+
+         
+
             </div>
                    
         </section>
@@ -37,10 +42,10 @@
         </aside>
 
     </div>
-<body>
+@*<body>
     <script>
         $(window).bind("beforeunload", function () {
             return true || confirm("Do you really want to close?");
         }); 
     </script>
-</body>
+</body>*@

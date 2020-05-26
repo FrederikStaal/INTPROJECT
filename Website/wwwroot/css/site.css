@@ -31,13 +31,13 @@ body {
 
 #loginHome 
 {
-    grid-area: 2 / 1 / 5 / 6;
+    grid-area: 1 / 1 / 5 / 6;
 }
 
 
 
 h1 {
-    font-size: 100px;
+    font-size: 150px;
     color: white;
     text-shadow: 2px 2px black;
     transition: transform 0.5s;
@@ -49,7 +49,7 @@ h1 {
     }
 
 h3 {
-    font-size: 25px;
+    font-size: 55px;
 }
 
 .flexbox {
@@ -61,7 +61,10 @@ h3 {
 
 .form {
     display: flex;
-    width:70%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
     background-color: rgba(196, 196, 196, 80%);
     padding: 30px;
     border-radius: 20px;
@@ -78,11 +81,21 @@ h3 {
     width: 100%;
 }
 #player-character{
-    width:100%;
+    width:50%;
+    margin: 20px;
 }
-
-#game-desc {
+#game-desc1 {
+   
     width: 100%;
+    color: black;
+    font-weight:bold;
+    text-align: center;
+}
+#game-desc {
+    font-size:30px;
+    width: 100%;
+    color:white;
+   
 }
 
 .flex-buttons {
@@ -110,21 +123,18 @@ input {
     margin: 10px;
 }
 
-.Text_input {
-    padding: 10px;
-    width: 80%;
-}
 
 .button {
     margin-top: 30px;
     background-color: #FBB540;
     border-style: none;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 10px;
+    padding: 20px;
     color: white;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 50px;
     transition: transform .2s;
+    width:50%;
 }
 
     .button:hover {
@@ -133,9 +143,7 @@ input {
         cursor: pointer;
     }
 
-#create {
-    display: none;
-}
+
 
 #left {
     grid-area: 1 / 1 / 6 / 2;
@@ -145,6 +153,7 @@ input {
     grid-area: 1 / 5 / 6 / 6;
 }
 .characters {
+    display:none;
     width: 80%;
     margin:1px;
 }
@@ -316,13 +325,31 @@ input {
     }
 
     h3 {
-        font-size: 25px;
+        font-size: 15px;
     }
-
+    #loginHome {
+        grid-area: 1 / 2 / 4 / 5;
+    }
     .form {
         
         width: 50%;
         
+    }
+
+    h1 {
+        font-size: 50px;
+    }
+
+    #game-desc {
+        font-size: 12px;
+    }
+    #player-character {
+        width: 30%;
+        margin: 0px;
+    }
+
+    .button {
+        padding: 10px;
     }
 
     .flex-buttons {
@@ -339,9 +366,6 @@ input {
         margin: 10px;
     }
 
-    .Text_input {
-        width: 80%;
-    }
 
     .button {
         font-size: 15px;
@@ -356,6 +380,7 @@ input {
     }
 
     .characters {
+        display:block;
         width: 80%;
     }
 
