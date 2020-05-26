@@ -18,7 +18,7 @@ let cardIDs = new Array(); //ids of all cards, incase we mess up and dont have t
 let cardIDsUsed = new Array(); //ids of cards that have been used, can never be longer than reuse factor
 let reuseFactor = 2; //how many turns before a card can be used again
 
-//
+//icon variables
 let moneyCanvas = document.getElementById("game-money-canvas");
 let moneyImage = document.getElementById("money-icon");
 let militaryCanvas = document.getElementById("game-military-canvas");
@@ -27,6 +27,14 @@ let happinessCanvas = document.getElementById("game-happiness-canvas");
 let happinesImage = document.getElementById("happiness-icon");
 let relationsCanvas = document.getElementById("game-relations-canvas");
 let relationsImage = document.getElementById("relations-icon");
+let colors = {
+    military: "blue",
+    happiness: "red",
+    relations: "orange",
+    economy: "green"
+}
+
+
 
 //game variables
 let hasLost = false;
@@ -37,6 +45,9 @@ let status = { //status of empire, range from 0 to 100
     economy: 50
 }
 let turn = -1; //turns since start, starts at -1 because  1 is added at game start
+
+
+
 
 // Trying to keep the session going
 var refreshSession = function () {
@@ -104,13 +115,13 @@ function updatePageData() {
     document.getElementById("years_office").innerHTML = "Years in office: " + turn;
     document.getElementById("Cardtext").innerHTML = currentCard.text;
 
-    drawIcon(moneyCanvas, status.economy, moneyImage);
-    drawIcon(militaryCanvas, status.military, militaryImage);
-    drawIcon(happinessCanvas, status.happiness, happinesImage);
-    drawIcon(relationsCanvas, status.relations, relationsImage);
+    drawIcon(moneyCanvas, status.economy, moneyImage, colors.economy);
+    drawIcon(militaryCanvas, status.military, militaryImage, colors.military);
+    drawIcon(happinessCanvas, status.happiness, happinesImage, colors.happiness);
+    drawIcon(relationsCanvas, status.relations, relationsImage, colors.relations);
 }
 
-function drawIcon(canvas, status, image) {
+function drawIcon(canvas, status, image, fillColor) {
     canvas.width = 100;
     canvas.height = 100;
     let imageWidth = 50;
@@ -120,13 +131,20 @@ function drawIcon(canvas, status, image) {
     let ctx = canvas.getContext("2d");
     let centerX = canvas.width / 2;
     let centerY = canvas.height / 2;
-
+    let radius = 48;
 
     ctx.beginPath();
+    ctx.fillStyle = fillColor;
+    ctx.strokeStyle = "000000";
     ctx.lineWidth = 2;
-    ctx.strokeStyle = "#ffffff";
-    ctx.arc(centerX, centerY, 48, startRadian, statusRadians);
+    ctx.moveTo(centerX, centerY);
+    ctx.lineTo(centerX, centerY + radius);
+
+
+    ctx.arc(centerX, centerY, radius, startRadian, statusRadians);
+    ctx.lineTo(centerX, centerY);
     ctx.stroke();
+    ctx.fill();
     ctx.drawImage(image, imageWidth / 2, imageHeight / 2, imageWidth, imageHeight);
 }
 
