@@ -9,35 +9,19 @@
             <div class="flexbox">
                 <h1>Govern</h1>
                 <div class="form">
-                    @*<form id="LoginForm" action="" method="post">
-            <div class="flex-inner">
-                <h3>Rule the country!</h3>
-                <input class="Text_input" type="text" placeholder="username" >
-                <input class="Text_input" type="password" placeholder="password" >
-            </div>
-            <div class="flex-buttons">
-                <input class="button" type="button" value="Start" onclick="location.href='@Url.Action("Index", "game")'">
-                <input class="button" type="button" value="Continue" onclick="location.href='@Url.Action("Index", "game")'">
-            </div>
-        </form>*@
+                    <div class="flex-inner">
+                        <p id="game-desc">
+                            Wanna know how it feels to be a ruler? Fight your way through political issues and keep your ministers happy in order to stay in office. The consequenses might be dire if you don't!'
+                        </p>
+                        <img src="~/images/me.png" id="player-character">
+                    </div>
                     <div class="flex-buttons">
                         <input class="button" type="button" value="Start" onclick="location.href='@Url.Action("Index", "game")'">
                         <input class="button" type="button" value="Continue" onclick="location.href='@Url.Action("Index", "game")'">
                     </div>
                 </div>
-                <div class="form" id="create">
-                    <form id="CreateAccountForm" action="" method="post">
-                        <div class="flex-inner">
-                            <h3> Become our leader!</h3>
-                            <input class="Text_input" type="text" placeholder="Create username" required>
-                            <input class="Text_input" type="password" placeholder="Create Password" required>
-                            <div class="flex-buttons">
-                                <input class="button" type="submit" value="Create">
-                            </div>
-                        </div>
-                    </form>
-                </div>
             </div>
+                   
         </section>
         <aside id="left">
             <div class="flexaside-inner">

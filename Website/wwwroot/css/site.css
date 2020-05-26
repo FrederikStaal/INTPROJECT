@@ -31,13 +31,13 @@ body {
 
 #loginHome 
 {
-    grid-area: 1 / 2 / 6 / 5;
+    grid-area: 2 / 1 / 5 / 6;
 }
 
 
 
 h1 {
-    font-size: 50px;
+    font-size: 100px;
     color: white;
     text-shadow: 2px 2px black;
     transition: transform 0.5s;
@@ -61,7 +61,7 @@ h3 {
 
 .form {
     display: flex;
-    width: 50%;
+    width:70%;
     background-color: rgba(196, 196, 196, 80%);
     padding: 30px;
     border-radius: 20px;
@@ -75,6 +75,22 @@ h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+}
+#player-character{
+    width:100%;
+}
+
+#game-desc {
+    width: 100%;
+}
+
+.flex-buttons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .flexaside-innner {
@@ -84,12 +100,7 @@ h3 {
     align-items: center;
 }
 
-.flex-buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-}
+
 
 form {
     width: 100%;
@@ -300,6 +311,53 @@ input {
 
 
     /*Home page*/
+    #loginHome {
+        grid-area: 1 / 2 / 6 / 5;
+    }
+
+    h3 {
+        font-size: 25px;
+    }
+
+    .form {
+        
+        width: 50%;
+        
+    }
+
+    .flex-buttons {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    input {
+        margin: 10px;
+    }
+
+    .Text_input {
+        width: 80%;
+    }
+
+    .button {
+        font-size: 15px;
+    }
+
+    #left {
+        grid-area: 1 / 1 / 6 / 2;
+    }
+
+    #right {
+        grid-area: 1 / 5 / 6 / 6;
+    }
+
+    .characters {
+        width: 80%;
+    }
 
     /*Gamepage Desktop*/
 
