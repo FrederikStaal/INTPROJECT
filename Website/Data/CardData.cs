@@ -20,7 +20,7 @@ namespace Website.Data
 
             //deletes all data in card table, but leaves card table itself
             context.Database.ExecuteSqlRaw("TRUNCATE TABLE Card");
-            context.Database.ExecuteSqlRaw("TRUNCATE TABLE SituationCards");
+            //context.Database.ExecuteSqlRaw("TRUNCATE TABLE SituationCards");
             //re add all data to database
             var cards = GetCards(context).ToArray();
             context.Card.AddRange(cards);
