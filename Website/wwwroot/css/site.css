@@ -175,50 +175,49 @@ input {
 
 
 #yes {
-    grid-area: 4/1/5/3;
+    grid-area: 5/1/6/3;
     display: flex;
-    justify-content: flex-start;
-   
+    justify-content: center;
+    align-items: flex-start;
 }
 #no {
-    grid-area: 4/4/5/6;
+    grid-area: 5/4/6/6;
     display: flex;
-    justify-content: flex-end;
-    
+    justify-content: center;
+    align-items: flex-start;
 }
 
 #game-cards {
-    grid-area: 2/2/5/5;
+    grid-area: 2/1/5/6;
+    display:flex;
+    justify-content:center;
+}
    
-}
 
-
-.answer-button {
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    height: 50%;
-    width: 50%;
-    background-color: #1A4C74;
-    border-style: none;
-    border-radius: 20px;
-    box-shadow: 0px 11px 8px -7px rgba(0,0,0,0.29);
-    text-align: center;
-    transition: transform 0.5s;
-    
-}
+    .answer-button {
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        height: 50%;
+        width: 80%;
+        background-color: #1A4C74;
+        border-style: none;
+        border-radius: 20px;
+        box-shadow: 0px 11px 8px -7px rgba(0,0,0,0.29);
+        text-align: center;
+        transition: transform 0.5s;
+    }
     
 
 
 
 #gameImage {
-    width: 100%;
+    width: 80%;
     border-radius: 20px;
     box-shadow: 0px 11px 8px -7px rgba(0,0,0,0.29);
     z-index: -1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    
+    
 }
 
 
@@ -229,7 +228,7 @@ input {
     text-align: center;
     width: 55%;
     z-index: 1;
-    
+    font-size:40px;
     
 }
 
@@ -246,14 +245,14 @@ input {
 #menu_headline {
     color: white;
     padding: 0px 25px;
-    font-size:15px;
+    font-size:35px;
 }
 #years_office {
     position:absolute;
     color: white;
    right: 5%;
    top:  10px;
-   font-size:15px;
+   font-size:35px;
 }
 #dropdown_nav {
     visibility: hidden;
@@ -266,7 +265,7 @@ input {
         color: white;
         padding: 12px 10px;
         text-decoration: none;
-        font-size:10px;
+        font-size:25px;
     }
         #dropdown_nav a:hover {
             text-decoration: underline;
@@ -336,6 +335,7 @@ input {
     }
 
     #CardText {
+        font-size: 15px;
         width: 20%;
     }
 
