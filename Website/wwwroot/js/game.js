@@ -28,10 +28,8 @@ let happinesImage = document.getElementById("happiness-icon");
 let relationsCanvas = document.getElementById("game-relations-canvas");
 let relationsImage = document.getElementById("relations-icon");
 let colors = {
-    military: "#0066cc",
-    happiness: "#ff0000",
-    relations: "#ff9900",
-    economy: "#33cc33"
+    good: "green",
+    bad: "red"
 }
 
 //game variables
@@ -109,10 +107,10 @@ function updatePageData() {
     document.getElementById("years_office").innerHTML = "Years in office: " + turn;
     document.getElementById("Cardtext").innerHTML = currentCard.text;
 
-    drawIcon(moneyCanvas, status.economy, moneyImage, colors.economy);
-    drawIcon(militaryCanvas, status.military, militaryImage, colors.military);
-    drawIcon(happinessCanvas, status.happiness, happinesImage, colors.happiness);
-    drawIcon(relationsCanvas, status.relations, relationsImage, colors.relations);
+    drawIcon(moneyCanvas, status.economy, moneyImage, "#1F3D57");
+    drawIcon(militaryCanvas, status.military, militaryImage, "#1F3D57");
+    drawIcon(happinessCanvas, status.happiness, happinesImage, "#1F3D57");
+    drawIcon(relationsCanvas, status.relations, relationsImage, "#1F3D57");
 }
 
 function drawIcon(canvas, status, image, fillColor) {
@@ -121,14 +119,14 @@ function drawIcon(canvas, status, image, fillColor) {
     let imageWidth = 50;
     let imageHeight = 50;
     let startRadian = Math.PI / 2;
-    let statusRadians = status / 50 * Math.PI + startRadian;
+    let statusRadian = status / 50 * Math.PI + startRadian;
     let ctx = canvas.getContext("2d");
     let centerX = canvas.width / 2;
     let centerY = canvas.height / 2;
     let radius = 46;
 
     ctx.beginPath();
-    ctx.fillStyle = perc2color(status);
+    ctx.fillStyle = fillColor;
     ctx.strokeStyle = "000000";
     ctx.lineWidth = 3;
     ctx.shadowBlur = 5;
@@ -137,7 +135,7 @@ function drawIcon(canvas, status, image, fillColor) {
     ctx.lineTo(centerX, centerY + radius);
 
 
-    ctx.arc(centerX, centerY, radius, startRadian, startRadian + 2 * Math.PI);
+    ctx.arc(centerX, centerY, radius, startRadian, statusRadian);
     ctx.lineTo(centerX, centerY);
     //ctx.stroke();
     ctx.fill();
@@ -238,10 +236,26 @@ function agree() {
 }
 
 function showAgreeResult() {
-    drawIcon(moneyCanvas, status.economy + parseInt(currentCard.economy1), moneyImage, colors.economy);
-    drawIcon(militaryCanvas, status.military + parseInt(currentCard.military1), militaryImage, colors.military);
-    drawIcon(happinessCanvas, status.happiness + parseInt(currentCard.happiness1), happinesImage, colors.happiness);
-    drawIcon(relationsCanvas, status.relations + parseInt(currentCard.relations1), relationsImage, colors.relations);
+    if (currentCard.economy1 < 0) {
+        drawIcon(moneyCanvas, status.economy, moneyImage, colors.bad);
+    } else if (currentCard.economy1 > 0) {
+        drawIcon(moneyCanvas, status.economy, moneyImage, colors.good);
+    }
+    if (currentCard.military1 < 0) {
+        drawIcon(militaryCanvas, status.military, militaryImage, colors.bad);
+    } else if (currentCard.military1 > 0) {
+        drawIcon(militaryCanvas, status.military, militaryImage, colors.good);
+    }
+    if (currentCard.happiness1 < 0) {
+        drawIcon(happinessCanvas, status.happiness, happinesImage, colors.bad);
+    } else if (currentCard.happiness1 > 0) {
+        drawIcon(happinessCanvas, status.happiness, happinesImage, colors.good);
+    }
+    if (currentCard.relations1 < 0) {
+        drawIcon(relationsCanvas, status.relations, relationsImage, colors.bad);
+    } else if (currentCard.relations1 > 0) {
+        drawIcon(relationsCanvas, status.relations, relationsImage, colors.good);
+    }
 }
 
 function disagree() {
@@ -253,10 +267,26 @@ function disagree() {
 }
 
 function showDisagreeResult() {
-    drawIcon(moneyCanvas, status.economy + parseInt(currentCard.economy2), moneyImage, colors.economy);
-    drawIcon(militaryCanvas, status.military + parseInt(currentCard.military2), militaryImage, colors.military);
-    drawIcon(happinessCanvas, status.happiness + parseInt(currentCard.happiness2), happinesImage, colors.happiness);
-    drawIcon(relationsCanvas, status.relations + parseInt(currentCard.relations2), relationsImage, colors.relations);
+    if (currentCard.economy2 < 0) {
+        drawIcon(moneyCanvas, status.economy, moneyImage, colors.bad);
+    } else if (currentCard.economy2 > 0) {
+        drawIcon(moneyCanvas, status.economy, moneyImage, colors.good);
+    }
+    if (currentCard.military2 < 0) {
+        drawIcon(militaryCanvas, status.military, militaryImage, colors.bad);
+    } else if (currentCard.military2 > 0) {
+        drawIcon(militaryCanvas, status.military, militaryImage, colors.good);
+    }
+    if (currentCard.happiness2 < 0) {
+        drawIcon(happinessCanvas, status.happiness, happinesImage, colors.bad);
+    } else if (currentCard.happiness2 > 0) {
+        drawIcon(happinessCanvas, status.happiness, happinesImage, colors.good);
+    }
+    if (currentCard.relations2 < 0) {
+        drawIcon(relationsCanvas, status.relations, relationsImage, colors.bad);
+    } else if (currentCard.relations2 > 0) {
+        drawIcon(relationsCanvas, status.relations, relationsImage, colors.good);
+    }
 }
 
 function lost() {
