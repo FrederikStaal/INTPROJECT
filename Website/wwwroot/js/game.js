@@ -38,6 +38,21 @@ let status = { //status of empire, range from 0 to 100
 }
 let turn = -1; //turns since start, starts at -1 because  1 is added at game start
 
+// Trying to keep the session going
+var refreshSession = function () {
+    var time = 600000; //10 mins
+    setTimeout(
+        function () {
+            $.ajax({
+                url: 'refresh_session.php',
+                cache: false,
+                complete: function () { refreshSession(); }
+            });
+        },
+        time
+    );
+};
+
 //Start the game by loading the card data and saving it
 loadData();
 
@@ -218,6 +233,7 @@ function disagree() {
 function lost() {
     hasLost = true;
     document.cookie = cookieName + "=" + "";
+    reset();
 }
 
 //resets game
@@ -227,6 +243,8 @@ function reset() {
     status.happiness = 50;
     status.military = 50;
     turn = -1;
+    
+    startGame();
     nextTurn();
 }
 
