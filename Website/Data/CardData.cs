@@ -141,33 +141,6 @@ namespace Website.Data
                     Economy1 = 0, Economy2 = 0, Military1 = 10, Military2 = -10, Relations1 = -10, Relations2 = 10, Happiness1 = 0, Happiness2 = 0,
                     CharacterID = 1},
 
-                ////outcome, death cards
-                ////death, general, if military 0
-                //new Card {ImageRef = "the_general.png", Text = "We are being invaded by the neighbouring country and we have no army… We should surrender!",
-                //        Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
-                //        CharacterID = 1 },
-                //// if no
-                //new Card {ImageRef = "dead.png",Text = "You did not surrender, which resulted in you being put to death",
-                //        Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
-                //        CharacterID = 7 },
-                //// if yes
-                //new Card {ImageRef = "prison.png",Text = "You surrendered to the invaders, and spent the rest of your days in prison",
-                //        Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
-                //        CharacterID = 7 },
-
-                ////death, general if military 100
-                //new Card {ImageRef = "the_general.png", Text = "Sir.. The army have no more need of you.. I’ll take over from here",
-                //        Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
-                //        CharacterID = 1 },
-                //// if yes
-                //new Card {ImageRef = "prison.png",Text = "The generel spared you and threw you to prison..",
-                //        Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
-                //        CharacterID = 7 },
-                //// if no
-                //new Card {ImageRef = "dead.png",Text = "The generel didn’t take a no for an answer and shot you on the spot",
-                //        Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 = -100, Happiness1 = -100, Happiness2 = -100,
-                //        CharacterID = 7 },
-
                 
 
                 //Normal Cards related to the minister of trade
