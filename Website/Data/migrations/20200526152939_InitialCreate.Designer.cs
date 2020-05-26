@@ -9,7 +9,7 @@ using Website.Models;
 namespace Website.Data.migrations
 {
     [DbContext(typeof(GameContext))]
-    [Migration("20200526121906_InitialCreate")]
+    [Migration("20200526152939_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

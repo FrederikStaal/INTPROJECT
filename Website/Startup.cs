@@ -43,7 +43,7 @@ namespace Website
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            CardData.Initialize(app);
+           // CardData.Initialize(app);
 
             app.UseStaticFiles();
 
