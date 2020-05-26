@@ -246,9 +246,10 @@ input {
     position: absolute;
     color: white;
     text-align: center;
-    width: 55%;
+    width: 75%;
     z-index: 1;
     font-size:40px;
+    
     
 }
 
@@ -419,7 +420,7 @@ input {
 
     #CardText {
         font-size: 15px;
-        width: 20%;
+        width: 19%;
     }
 
     /*Menu*/
