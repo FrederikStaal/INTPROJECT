@@ -14,5 +14,6 @@ namespace Website.Models
         }
 
         public DbSet<Card> Card { get; set; }
+        public DbSet<Card> SituationCard { get; set; } 
     }
 }
