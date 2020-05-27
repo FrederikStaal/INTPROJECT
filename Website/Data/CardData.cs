@@ -26,9 +26,9 @@ namespace Website.Data
             context.Database.ExecuteSqlRaw("TRUNCATE TABLE Card");
             //context.Database.ExecuteSqlRaw("TRUNCATE TABLE SituationCards");
             //re add all data to database
-            var cards = GetCards(context).ToArray();
+            var cards = GetCards().ToArray();
             context.Card.AddRange(cards);
-            var sitCards = GetSituationCards(context).ToArray();
+            var sitCards = GetSituationCards().ToArray();
             context.SituationCard.AddRange(sitCards);
             context.SaveChanges();
         }

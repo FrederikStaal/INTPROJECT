@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Website.Models;
-
+using Website.Data;
 namespace Website
 {
     public class Startup
@@ -46,7 +46,7 @@ namespace Website
                 app.UseExceptionHandler("/Home/Error");
             }
             // CardData.Initialize() was used to seed the Database
-            CardData.Initialize(app);
+            //CardData.Initialize(app);
 
             app.UseStaticFiles();
 
