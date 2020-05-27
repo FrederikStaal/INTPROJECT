@@ -1,16 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+/*
+ * Group 6
+ * Rasmus, Joseph, Tony and Frederik
+ * Class type: Startup.cs
+ * - 
+ */
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Website.Models;
-using Website.Data;
+
 namespace Website
 {
     public class Startup
@@ -25,6 +27,7 @@ namespace Website
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // DbContext added to container
             services.AddDbContext<GameContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("CardDB")));
 
@@ -42,8 +45,8 @@ namespace Website
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
-           // CardData.Initialize(app);
+            // CardData.Initialize() was used to seed the Database
+            // CardData.Initialize(app);
 
             app.UseStaticFiles();
 
