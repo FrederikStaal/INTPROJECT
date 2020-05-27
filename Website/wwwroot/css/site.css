@@ -337,7 +337,7 @@ input {
         font-size: 15px;
     }
     #loginHome {
-        grid-area: 1 / 2 / 4 / 5;
+        grid-area: 1 / 2 / 6 / 5;
     }
     .form {
         
