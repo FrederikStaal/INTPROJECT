@@ -320,44 +320,31 @@ function showDisagreeResult() {
 }
 
 function lost() {
-    //alert("You have lost");
-    //hasLost = true;
-    //reset();
-
-
-    
     if (status.military <= 0)
-        currentCard = getSitCardById(18);
+        currentCard = getSitCardById(18); // 1
         updatePageData();
     if (status.military >= 100)
-        currentCard = getSitCardById(10);
+        currentCard = getSitCardById(10); // 2
         updatePageData();
     if (status.relations <= 0)
-        currentCard = getSitCardById(20);
+        currentCard = getSitCardById(20); // 4
         updatePageData();
     if (status.relations >= 100)
-        currentCard = getSitCardById(13);
+        currentCard = getSitCardById(13); // 3
         updatePageData();
     if (status.happiness <= 0)
-        currentCard = getSitCardById(8);
+        currentCard = getSitCardById(8); // 5
         updatePageData();
     if (status.happiness >= 100)
-        currentCard = getSitCardById(7);
+        currentCard = getSitCardById(7); // 6
         updatePageData();
     if (status.economy <= 0)
-        currentCard = getSitCardById(19);
+        currentCard = getSitCardById(19); // 8
         updatePageData();
     if (status.economy >= 100)
-        currentCard = getSitCardById(4);
+        currentCard = getSitCardById(4); // 7
         updatePageData();
-
-    //currentCard = datalost;
-    //document.getElementById("gameImage").src = "../images/" + currentCard.imageRef;
-    alert("You have lost! Try again")
-    
-        //reset();
-    //updatePageData();
-    //break();
+    //alert("You have lost! Try again")
 }
 
 //resets game
