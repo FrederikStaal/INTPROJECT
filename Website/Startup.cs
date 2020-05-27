@@ -46,7 +46,7 @@ namespace Website
                 app.UseExceptionHandler("/Home/Error");
             }
             // CardData.Initialize() was used to seed the Database
-            // CardData.Initialize(app);
+            CardData.Initialize(app);
 
             app.UseStaticFiles();
 
