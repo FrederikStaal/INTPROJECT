@@ -1,10 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
     <body class="Home">
         <div class="container">
-
             <section id="loginHome">
                 <div class="flexbox">
                     <h1>Govern</h1>
@@ -20,14 +18,10 @@
                         </div>
                         <div class="flex-buttons">
                             <input class="button" type="button" value="Start" onclick="location.href='@Url.Action("Index", "game")'">
-                            <input class="button" type="button" value="Continue" onclick="location.href='@Url.Action("Index", "game")'">
+                            <input class="button" type="button" value="Continue" onclick="location.href='@Url.Action("Index", "game")'"> <!--SLET?-->
                         </div>
                     </div>
-
-
-
                 </div>
-
             </section>
             <aside id="left">
                 <div class="flexaside-inner">
@@ -43,11 +37,4 @@
             </aside>
 
         </div>
-        @*<body>
-            <script>
-                $(window).bind("beforeunload", function () {
-                    return true || confirm("Do you really want to close?");
-                });
-            </script>
-        </body>*@
-        </body>
+    </body>

@@ -13,6 +13,7 @@ try {
 
 //card handling
 let cards; //all cards in game
+let sitCards; // all situation cards
 let currentCard; //current card displayed
 let cardIDs = new Array(); //ids of all cards, incase we mess up and dont have them in order or skip an id
 let cardIDsUsed = new Array(); //ids of cards that have been used, can never be longer than reuse factor
@@ -33,6 +34,17 @@ let colors = {
     base: "#2A6BA4"
 }
 
+// Situation cards container
+//const r = await fetch(window.location.href.replace("/game", "/api/situationcards"));
+//const sitCards = await r.json();
+
+//async function getSitCards() {
+//    const r = await fetch(window.location.href.replace("/game", "/api/situationcards"));
+//    const sitCards = await r.json();
+
+//    return (await Promise.resolve(sitCards)); 
+//}
+
 
 //game variables
 let hasLost = false;
@@ -44,21 +56,6 @@ let status = { //status of empire, range from 0 to 100
 }
 let turn = -1; //turns since start, starts at -1 because  1 is added at game start
 
-// Trying to keep the session going
-var refreshSession = function () {
-    var time = 600000; //10 mins
-    setTimeout(
-        function () {
-            $.ajax({
-                url: 'refresh_session.php',
-                cache: false,
-                complete: function () { refreshSession(); }
-            });
-        },
-        time
-    );
-};
-
 //Start the game by loading the card data and saving it
 loadData();
 
@@ -67,25 +64,47 @@ async function loadData() {
     const response = await fetch(cardAPIURL);
     const data = await response.json();
 
+    //const r = await fetch(window.location.href.replace("/game", "/api/situationcards"));
+    //const rdata = await r.json();
+
     //load cookie data
+    //if (isValidCookie) {
+    //    continueGame(await Promise.all(data));
+    //} else {
+    //    startGame(await Promise.all(data));
+        
+    //}
+    loadDatar(data);
+}
+
+async function loadDatar(data) {
+    const r = await fetch(window.location.href.replace("/game", "/api/situationcards"));
+    const rdata = await r.json();
+
     if (isValidCookie) {
-        continueGame(await Promise.all(data));
+        continueGame(data, await Promise.all(rdata));
     } else {
-        startGame(await Promise.all(data));
+        startGame(data, await Promise.all(rdata));
+
     }
 }
 
+
+
 //called after all data is loaded, saves data from loadData function
-function startGame(data) {
+function startGame(data, rdata) {
     cards = data;
+    sitCards = rdata;
+
     generateCardIDs();
     hasLost = false;
     //start first turn of game
     nextTurn();
 }
 
-function continueGame(data) {
+function continueGame(data, rdata) {
     cards = data;
+    sitCards = rdata;
     generateCardIDs();
     updateGameData();
     updatePageData();
@@ -174,6 +193,15 @@ function generateCardIDs() {
     cards.forEach(card => {
         cardIDs.push(card.cardID);
     });
+}
+
+function getSitCardById(id) {
+    let r = null;
+    sitCards.forEach(card => {
+        if (card.situationCardID === id)
+            r = card;
+    });
+    return r;
 }
 
 //returns card with same id or null if not found
@@ -292,9 +320,44 @@ function showDisagreeResult() {
 }
 
 function lost() {
-    alert("You have lost");
-    hasLost = true;
-    reset();
+    //alert("You have lost");
+    //hasLost = true;
+    //reset();
+
+
+    
+    if (status.military <= 0)
+        currentCard = getSitCardById(18);
+        updatePageData();
+    if (status.military >= 100)
+        currentCard = getSitCardById(10);
+        updatePageData();
+    if (status.relations <= 0)
+        currentCard = getSitCardById(20);
+        updatePageData();
+    if (status.relations >= 100)
+        currentCard = getSitCardById(13);
+        updatePageData();
+    if (status.happiness <= 0)
+        currentCard = getSitCardById(8);
+        updatePageData();
+    if (status.happiness >= 100)
+        currentCard = getSitCardById(7);
+        updatePageData();
+    if (status.economy <= 0)
+        currentCard = getSitCardById(19);
+        updatePageData();
+    if (status.economy >= 100)
+        currentCard = getSitCardById(4);
+        updatePageData();
+
+    //currentCard = datalost;
+    //document.getElementById("gameImage").src = "../images/" + currentCard.imageRef;
+    alert("You have lost! Try again")
+    
+        //reset();
+    //updatePageData();
+    //break();
 }
 
 //resets game

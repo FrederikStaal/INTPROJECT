@@ -1,11 +1,15 @@
-﻿using Website.Models;
+﻿/*
+ * Group 6
+ * Rasmus, Joseph, Tony and Frederik
+ * Class type: Data
+ * - Used to seed our database first time. The call is found in Startup.cs, but is not used more than once. 
+ */
+
+using Website.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Website.Data
 {
@@ -20,7 +24,7 @@ namespace Website.Data
 
             //deletes all data in card table, but leaves card table itself
             context.Database.ExecuteSqlRaw("TRUNCATE TABLE Card");
-          //context.Database.ExecuteSqlRaw("TRUNCATE TABLE SituationCards");
+            //context.Database.ExecuteSqlRaw("TRUNCATE TABLE SituationCards");
             //re add all data to database
             var cards = GetCards(context).ToArray();
             context.Card.AddRange(cards);

@@ -1,4 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿/*
+ * Group 6
+ * Rasmus, Joseph, Tony and Frederik
+ * Class type: DbContext for our Model classes
+ * - 
+ */
+
+using Microsoft.EntityFrameworkCore;
 
 namespace Website.Models
 {
