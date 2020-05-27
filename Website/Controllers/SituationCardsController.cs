@@ -1,8 +1,13 @@
-﻿using System;
+﻿/*
+ * Group 6
+ * Rasmus, Joseph, Tony and Frederik
+ * Class type: ControllerBase
+ * - ControllerBase class for the SituationCards API
+ */
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Website.Models;
