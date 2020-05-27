@@ -1,12 +1,16 @@
-﻿using System;
+﻿/*
+ * Group 6
+ * Rasmus, Joseph, Tony and Frederik
+ * Class type: ControllerBase
+ * - ControllerBase class for the Card API
+ */
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Website.Models;
-using Microsoft.AspNetCore.Cors;
 
 namespace Website.Controllers
 {
