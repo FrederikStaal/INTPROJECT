@@ -1,4 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿/*
+ * Group 6
+ * Rasmus, Joseph, Tony and Frederik
+ * Class type: Model
+ * - 
+ */
+using System.ComponentModel.DataAnnotations;
 
 namespace Website.Models
 {
