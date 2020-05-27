@@ -449,4 +449,31 @@ input {
     #dropdown:hover #dropdown_nav {
         visibility: visible;
     }
+
+    @media only screen and (min-width: 2000px){
+        h3 {
+            font-size: 35px;
+        }
+
+        .form {
+            width: 50%;
+        }
+
+        h1 {
+            font-size: 80px;
+        }
+
+        #game-desc {
+            font-size: 32px;
+        }
+
+        .button {
+            padding: 10px;
+        }
+
+        .button {
+            font-size: 35px;
+        }
+
+    }
 }
