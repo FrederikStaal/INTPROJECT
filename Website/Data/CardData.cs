@@ -33,7 +33,7 @@ namespace Website.Data
             context.SaveChanges();
         }
 
-        public static List<SituationCard> GetSituationCards(GameContext db)
+        public static List<SituationCard> GetSituationCards()
         {
             List<SituationCard> sitCards = new List<SituationCard>()
             {
@@ -152,7 +152,7 @@ namespace Website.Data
             return sitCards;
         }
 
-        public static List<Card> GetCards(GameContext db)
+        public static List<Card> GetCards()
         {
             List<Card> cards = new List<Card>()
             {
