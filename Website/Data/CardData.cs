@@ -147,7 +147,7 @@ namespace Website.Data
                   //id:21
                   new SituationCard {ImageRef = "dead.png",Text = "The debt collectors threw you in a river and you were never seen again",
                     Economy1 = -100, Economy2 = -100, Military1 = -100, Military2 = -100, Relations1 = -100, Relations2 =-100, Happiness1 = -100, Happiness2 = -100,
-                    CharacterID = },
+                    CharacterID = 0}
             };
             return sitCards;
         }
